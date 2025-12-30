@@ -15,15 +15,19 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  margin-bottom: 10px;
+  border-bottom: 3px solid #005EB8;
+  padding-bottom: 12px;
 }
-
+@media (max-width: 600px)
 .site-header h1 {
   text-align: center;
   margin: 0;
-  color: #2c3e50;
-  font-size: 2.2em;
-}
+  color: #005EB8; /* Ottawa Hospital–style blue */
+  font-size: 2.8em; /* larger title */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Helvetica, Arial, sans-serif;}
 
 .logo {
   height: 90px;      /* adjust this value */
