@@ -3,130 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <title>TOH NMMI Teaching Files</title>
+
   <style>
     body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 40px;
-  background: #f5f5f5;
-}
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background: #f5f5f5;
+    }
 
-.site-header {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  margin-bottom: 10px;
-  border-bottom: 3px solid #005EB8;
-  padding-bottom: 12px;
-}
+    .site-header {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      margin-bottom: 10px;
+      border-bottom: 3px solid #005EB8;
+      padding-bottom: 12px;
+    }
 
-.site-header h1 {
-  text-align: center;
-  grid-column: 2; 
-  justify-self: center;
-  margin: 0;
-  color: #005EB8 !important;
-  font-size: 2.8em;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Helvetica, Arial, sans-serif;}
+    .site-header h1 {
+      grid-column: 2;
+      justify-self: center;
+      margin: 0;
+      color: #005EB8;
+      font-size: 2.8em;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Helvetica, Arial, sans-serif;
+      text-align: center;
+    }
 
-.logo {
-  height: 140px;
-  width: auto;      
-  object-fit: contain;
-}
+    .logo {
+      height: 140px;
+      width: auto;
+      object-fit: contain;
+    }
 
-.left-logo {
-  justify-self: start;
-}
+    .left-logo {
+      justify-self: start;
+    }
 
-.right-logo {
-  justify-self: end;
-}
+    .right-logo {
+      justify-self: end;
+    }
 
-.subtitle {
-  text-align: center;
-  color: #555;
-  margin-bottom: 30px;
-  font-size: 1em;
-}
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 40px;
+      font-size: 1.05em;
+    }
 
-.case {
-  background: white;
-  padding: 20px;
-  margin-bottom: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-}
+    .case {
+      background: white;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    }
 
-img {
-  max-width: 50%;
-  height: auto;
-}
+    .section-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .section-list li {
+      margin: 15px 0;
+    }
+
+    .section-list a {
+      text-decoration: none;
+      font-size: 1.2em;
+      color: #005EB8;
+      font-weight: 600;
+    }
+
+    .section-list a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #777;
+      font-size: 0.9em;
+    }
   </style>
 </head>
+
 <body>
+
 <header class="site-header">
-  <img src="UOttawa_Med_Logo.png" alt="University Logo" class="logo left-logo">
+  <img src="UOttawa_Med_Logo.png" alt="University of Ottawa Logo" class="logo left-logo">
 
   <h1>Nuclear Medicine Teaching Files</h1>
 
-  <img src="The_Ottawa_Hospital_Logo.png" alt="Hospital Logo" class="logo right-logo">
+  <img src="The_Ottawa_Hospital_Logo.png" alt="The Ottawa Hospital Logo" class="logo right-logo">
 </header>
 
-<p class="subtitle">Public educational cases. All images anonymized.</p>
+<p class="subtitle">
+  Public educational nuclear medicine cases curated for medical students,
+  residents, and allied health professionals.  
+  All content is anonymized and intended for educational purposes only.
+</p>
+
 <div class="case">
-  <h2>Case 1: Bone Scan</h2>
-  <img src="https://res.cloudinary.com/do6nucmhv/image/upload/v1767110540/Screenshot_2025-12-30_at_11.02.13_AM_g4it6f.png"
+  <h2>About This Resource</h2>
+  <p>
+    This website provides curated nuclear medicine teaching cases covering a wide
+    range of diagnostic studies. Each section focuses on a specific imaging
+    modality or study type, with cases designed to encourage image-first
+    interpretation prior to revealing key findings and impressions.
+  </p>
 </div>
-<details>
-  <summary>🔍 Click to reveal findings</summary>
 
-   <p><strong>Findings:</strong></p>
-    <ul>
-      <li>Pirate sign in Image A (Dark area with increased uptake in temporal bone)</li>
-      <li>Increased uptake in Image B (Increased uptake in occipital Bone)</li>
-    </ul>
-
-    <p><strong>Diagnosis:</strong> Fibrous Dysplasia.</p>
-  </details>
-</div>
 <div class="case">
-  <h2>Case 2: FDG PET/CT – Suspected Lung Malignancy</h2>
-  <iframe width="30%" height="200"
-    src="https://www.youtube.com/embed/kPM-WJDDy74?si=XJXw6trWV_FU9SXw" 
-    title="FDG PET cine loop"
-    frameborder="0"
-    allowfullscreen>
-  </iframe>
-  <details>
-    <summary>🔍 Click to reveal findings</summary>
-    <div class="finding">
-      <h3>Primary Pulmonary Lesion</h3>
-      <img src="https://res.cloudinary.com/do6nucmhv/image/upload/v1767117468/Screenshot_2025-12-30_at_12.39.25_PM_gccvad.png"
-           alt="Hypermetabolic left lower lobe lung nodule">
-      <p>
-        Focal intense FDG uptake within a Right lower lobe mass,
-        exceeding background mediastinal activity, concerning for a primary
-        pulmonary malignancy.
-      </p>
-    </div>
-
-    <div class="finding">
-      <h3>Brain Metastasis</h3>
-      <img src="https://res.cloudinary.com/do6nucmhv/image/upload/v1767116675/Screenshot_2025-12-30_at_12.43.58_PM_tgdaox.png"
-           alt="FDG-avid rim with photopenic center in the left cerebellum">
-      <p>
-        Hypermetabolic necrotic cerebellar metastasis.
-      </p>
-    </div>
-
-    <p><strong>Impression:</strong> Findings are consistent with a primary
-    left lower lobe lung malignancy with necrotic right cerebellar metastasis.</p>
-  </details>
+  <h2>Teaching Sections</h2>
+  <ul class="section-list">
+    <li><a href="bone.html">🦴 Bone Scintigraphy</a></li>
+    <li><a href="renal.html">🚰 Renal Scintigraphy</a></li>
+    <li><a href="pet.html">☢️ PET / PET-CT</a></li>
+    <li><a href="thyroid.html">🦋 Thyroid & Parathyroid Imaging</a></li>
+    <li><a href="other.html">📚 Other Nuclear Medicine Studies</a></li>
+  </ul>
 </div>
+
+<div class="case">
+  <h2>How to Use These Cases</h2>
+  <ul>
+    <li>Review the images or cine loops before revealing findings</li>
+    <li>Formulate a differential diagnosis</li>
+    <li>Compare your interpretation with the provided findings and impression</li>
+  </ul>
+</div>
+
+<footer>
+  © Nuclear Medicine Teaching Files · Educational Use Only
+</footer>
 
 </body>
 </html>
