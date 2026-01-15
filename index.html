@@ -5,6 +5,39 @@
   <title>TOH NMMI Teaching Files</title>
 
   <style>
+    .top-nav {
+  position: sticky;
+  top: 0;
+  background-color: #005EB8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  z-index: 1000;
+}
+
+.top-nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: 600;
+}
+
+.top-nav a:hover {
+  text-decoration: underline;
+}
+
+.nav-logo {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.nav-right input {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.95em;
+}
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -95,6 +128,25 @@
 
 <body>
 
+<nav class="top-nav">
+  <div class="nav-left">
+    <a href="index.html" class="nav-logo">NMMI Teaching Files</a>
+
+    <a href="bone.html">Bone Scans</a>
+    <a href="renal.html">Renal Scans</a>
+    <a href="pet.html">PET/CT</a>
+  </div>
+
+  <div class="nav-right">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search cases..."
+      onkeyup="searchCases()"
+    >
+  </div>
+</nav>
+  
 <header class="site-header">
   <img src="UOttawa_Med_Logo.png" alt="University of Ottawa Logo" class="logo left-logo">
 
@@ -146,6 +198,17 @@
 <footer>
   © TOH Nuclear Medicine Teaching Files · Educational Use Only
 </footer>
+<script>
+function searchCases() {
+  const input = document.getElementById("searchInput");
+  const filter = input.value.toLowerCase();
+  const cases = document.getElementsByClassName("case");
 
+  for (let i = 0; i < cases.length; i++) {
+    const text = cases[i].innerText.toLowerCase();
+    cases[i].style.display = text.includes(filter) ? "" : "none";
+  }
+}
+</script>
 </body>
 </html>
