@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bone Studies – Case #1</title>
 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 40px;
+      margin: 0;
+    }
+
+    h1 {
+      color: #005EB8;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      color: #003f7d;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 6px;
+      margin-top: 40px;
+    }
+
+    .section {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      margin-top: 20px;
+    }
+
+    .placeholder {
+      border: 2px dashed #ccc;
+      padding: 15px;
+      border-radius: 6px;
+      color: #666;
+      font-style: italic;
+    }
+
+    details {
+      margin-top: 15px;
+    }
+
+    summary {
+      font-weight: 600;
+      cursor: pointer;
+      color: #005EB8;
+    }
+
+    ul {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Bone Studies – Case #1</h1>
+
+  <h2>Patient Information</h2>
+  <div class="section">
+    <div class="placeholder">
+      Insert relevant patient information here (age, sex, indication,
+      relevant history, lab values if applicable).
+    </div>
+  </div>
+
+  <h2>Images</h2>
+  <div class="section">
+    <div class="placeholder">
+      Insert images, image grids, or embedded videos here.
+    </div>
+  </div>
+
+  <h2>Impression</h2>
+  <div class="section">
+    <ul>
+      <li>What is your differential diagnosis?</li>
+      <li>What sign(s) are evident on these images?</li>
+      <li>What diagnosis is most likely?</li>
+    </ul>
+  </div>
+
+  <h2>Findings</h2>
+  <div class="section">
+    <details>
+      <summary>🔍 Click to reveal findings</summary>
+
+      <p><strong>Key Findings:</strong></p>
+      <ul>
+        <li>Description of imaging findings</li>
+        <li>Description of characteristic signs</li>
+      </ul>
+
+      <p><strong>Diagnosis:</strong> Insert final diagnosis.</p>
+
+      <p><strong>Teaching Point:</strong> Optional short pearl.</p>
+    </details>
+  </div>
+
+</body>
+</html>
