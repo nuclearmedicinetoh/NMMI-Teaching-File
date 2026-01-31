@@ -309,7 +309,6 @@
       onkeyup="searchCases()">
   </div>
 </nav>
-  
 <header class="site-header">
   <img src="UOttawa_Med_Logo.png" alt="University of Ottawa Logo" class="logo left-logo">
 
@@ -332,6 +331,11 @@
     modality or study type, with cases designed to encourage image-first
     interpretation prior to revealing key findings and impressions.
   </p>
+  <img
+  src="https://res.cloudinary.com/do6nucmhv/image/upload/v1769878654/NUC_20MED_20Photo_Imaging_20Department_20Stock_20Imges_FX_20230627-0179_uvrvn5.jpg"
+  alt="Homepage image"
+  class="home-image"
+>
 </div>
 
 <div class="case">
@@ -383,6 +387,12 @@ function toggleDropdown(id) {
     dropdowns[i].classList.remove("show");
   }
   document.getElementById(id).classList.toggle("show");
+}
+.home-image {
+  display: block;
+  margin: 40px auto;
+  max-width: 100%;
+  height: auto;
 }
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
