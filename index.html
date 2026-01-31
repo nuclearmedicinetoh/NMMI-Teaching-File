@@ -400,10 +400,12 @@ function toggleDropdown(id) {
   display: flex;
   justify-content: center;
 }
-
 .home-image {
+  display: block;
   width: 70%;
-  max-width: 70%;
+  max-width: 100%;
+  margin: 30px auto;
+  height: auto;
 }
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
