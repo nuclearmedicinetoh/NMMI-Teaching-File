@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+  <title>TOH NMMI Teaching Files</title>
+  <style>
+    .top-nav {
+  position: sticky;
+  top: 0;
+  background-color: #005EB8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 12px 30px;
+  z-index: 1000;
+}
+.top-nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: 600;
+}
+.top-nav a:hover {
+  text-decoration: underline;
+}
+.nav-logo {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 18px; 
+  white-space: nowrap;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+.nav-right input {
+  width: 180px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.95em;
+}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background: #f5f5f5;
+    }
+    .site-header {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      margin-bottom: 10px;
+      border-bottom: 3px solid #005EB8;
+      padding-bottom: 12px;
+    }
+    .site-header h1 {
+      grid-column: 2;
+      justify-self: center;
+      margin: 0;
+      color: #005EB8;
+      font-size: 2.8em;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Helvetica, Arial, sans-serif;
+      text-align: center;
+    }
+    .logo {
+      height: 140px;
+      width: auto;
+      object-fit: contain;
+    }
+    .left-logo {
+      justify-self: start;
+    }
+    .right-logo {
+      justify-self: end;
+    }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 40px;
+      font-size: 1.05em;
+    }
+    .case {
+      background: white;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    }
+    .section-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .section-list li {
+      margin: 15px 0;
+    }
+    .section-list a {
+      text-decoration: none;
+      font-size: 1.2em;
+      color: #005EB8;
+      font-weight: 600;
+    }
+    .section-list a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #777;
+      font-size: 0.9em;
+    }
+  .dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropbtn {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 0;
+}
+.dropbtn:focus {
+  outline: none;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 260px;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 1001;
+}
+.dropdown-content a {
+  color: #005EB8;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+}
+.dropdown-content a:hover {
+  background-color: #f0f4f8;
+}
+.show {
+  display: block;
+}
+figure {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+figure img {
+  max-width: 75%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #444;
+}
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-left">
+    <a href="index.html" class="nav-logo">NMMI Teaching Files</a>
+
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('boneDropdown')">
+        Bone ▾
+      </button>
+      <div class="dropdown-content" id="boneDropdown">
+        <a href="bone_case1.html">Case #1 </a>
+        <a href="bone_case2.html">Case #2 </a>
+        <a href="bone_case3.html">Case #3 </a>
+        <a href="bone_case4.html">Case #4 </a>
+        <a href="bone_case5.html">Case #5 </a>
+        <a href="bone_case6.html">Case #6 </a>
+        <a href="bone_case7.html">Case #7 </a>
+        <a href="bone_case8.html">Case #8 </a>
+        <a href="bone_case9.html">Case #9 </a>
+        <a href="bone_case10.html">Case #10 </a>
+      </div>
+    </div>
+     <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('lungDropdown')">
+        Lung ▾
+      </button>
+      <div class="dropdown-content" id="lungDropdown">
+        <a href="lung_case1.html">Case #1 </a>
+        <a href="lung_case2.html">Case #2 </a>
+        <a href="lung_case3.html">Case #3 </a>
+        <a href="lung_case4.html">Case #4 </a>
+        <a href="lung_case5.html">Case #5 </a>
+        <a href="lung_case6.html">Case #6 </a>
+        <a href="lung_case7.html">Case #7 </a>
+        <a href="lung_case8.html">Case #8 </a>
+        <a href="lung_case9.html">Case #9 </a>
+        <a href="lung_case10.html">Case #10 </a>
+      </div>
+    </div>
+     <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('renalDropdown')">
+        Renal ▾
+      </button>
+      <div class="dropdown-content" id="renalDropdown">
+        <a href="renal_case1.html">Case #1 </a>
+        <a href="renal_case2.html">Case #2 </a>
+        <a href="renal_case3.html">Case #3 </a>
+        <a href="renal_case4.html">Case #4 </a>
+        <a href="renal_case5.html">Case #5 </a>
+        <a href="renal_case6.html">Case #6 </a>
+        <a href="renal_case7.html">Case #7 </a>
+        <a href="renal_case8.html">Case #8 </a>
+        <a href="renal_case9.html">Case #9 </a>
+        <a href="renal_case10.html">Case #10 </a>
+      </div>
+    </div>
+         <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('cardiacDropdown')">
+        Cardiac ▾
+      </button>
+      <div class="dropdown-content" id="cardiacDropdown">
+        <a href="cardiac_case1.html">Case #1 </a>
+        <a href="cardiac_case2.html">Case #2 </a>
+        <a href="cardiac_case3.html">Case #3 </a>
+        <a href="cardiac_case4.html">Case #4 </a>
+        <a href="cardiac_case5.html">Case #5 </a>
+        <a href="cardiac_case6.html">Case #6 </a>
+        <a href="cardiac_case7.html">Case #7 </a>
+        <a href="cardiac_case8.html">Case #8 </a>
+        <a href="cardiac_case9.html">Case #9 </a>
+        <a href="cardiac_case10.html">Case #10 </a>
+      </div>
+  </div>
+  <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('thyroidDropdown')">
+        Thyroid ▾
+      </button>
+      <div class="dropdown-content" id="thyroidDropdown">
+        <a href="thyroid_case1.html">Case #1 </a>
+        <a href="thyroid_case2.html">Case #2 </a>
+        <a href="thyroid_case3.html">Case #3 </a>
+        <a href="thyroid_case4.html">Case #4 </a>
+        <a href="thyroid_case5.html">Case #5 </a>
+        <a href="thyroid_case6.html">Case #6 </a>
+        <a href="thyroid_case7.html">Case #7 </a>
+        <a href="thyroid_case8.html">Case #8 </a>
+        <a href="thyroid_case9.html">Case #9 </a>
+        <a href="thyroid_case10.html">Case #10 </a>
+      </div>
+  </div>
+  <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('brainDropdown')">
+        Brain ▾
+      </button>
+      <div class="dropdown-content" id="brainDropdown">
+        <a href="brain_case1.html">Case #1 </a>
+        <a href="brain_case2.html">Case #2 </a>
+        <a href="brain_case3.html">Case #3 </a>
+        <a href="brain_case4.html">Case #4 </a>
+        <a href="brain_case5.html">Case #5 </a>
+        <a href="brain_case6.html">Case #6 </a>
+        <a href="brain_case7.html">Case #7 </a>
+        <a href="brain_case8.html">Case #8 </a>
+        <a href="brain_case9.html">Case #9 </a>
+        <a href="brain_case10.html">Case #10 </a>
+      </div>
+  </div>
+  <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('petDropdown')">
+        PET-CT ▾
+      </button>
+      <div class="dropdown-content" id="petDropdown">
+        <a href="pet_case1.html">Case #1 </a>
+        <a href="pet_case2.html">Case #2 </a>
+        <a href="pet_case3.html">Case #3 </a>
+        <a href="pet_case4.html">Case #4 </a>
+        <a href="pet_case5.html">Case #5 </a>
+        <a href="pet_case6.html">Case #6 </a>
+        <a href="pet_case7.html">Case #7 </a>
+        <a href="pet_case8.html">Case #8 </a>
+        <a href="pet_case9.html">Case #9 </a>
+        <a href="pet_case10.html">Case #10 </a>
+      </div>
+  </div>
+  <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('therapyDropdown')">
+        Therapy ▾
+      </button>
+      <div class="dropdown-content" id="therapyDropdown">
+        <a href="therapy_case1.html">Case #1 </a>
+        <a href="therapy_case2.html">Case #2 </a>
+        <a href="therapy_case3.html">Case #3 </a>
+        <a href="therapy_case4.html">Case #4 </a>
+        <a href="therapy_case5.html">Case #5 </a>
+        <a href="therapy_case6.html">Case #6 </a>
+        <a href="therapy_case7.html">Case #7 </a>
+        <a href="therapy_case8.html">Case #8 </a>
+        <a href="therapy_case9.html">Case #9 </a>
+        <a href="therapy_case10.html">Case #10 </a>
+      </div>
+  </div>
+  <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('othersDropdown')">
+        Others ▾
+      </button>
+      <div class="dropdown-content" id="othersDropdown">
+        <a href="others_case1.html">Case #1 </a>
+        <a href="others_case2.html">Case #2 </a>
+        <a href="others_case3.html">Case #3 </a>
+        <a href="others_case4.html">Case #4 </a>
+        <a href="others_case5.html">Case #5 </a>
+        <a href="others_case6.html">Case #6 </a>
+        <a href="others_case7.html">Case #7 </a>
+        <a href="others_case8.html">Case #8 </a>
+        <a href="others_case9.html">Case #9 </a>
+        <a href="others_case10.html">Case #10 </a>
+      </div>
+  </div>
+  <div class="nav-right">
+    <input type="text"
+      id="searchInput"
+      placeholder="Search cases..."
+      onkeyup="searchCases()">
+  </div>
+</nav>
+<header class="site-header">
+  <img src="UOttawa_Med_Logo.png" alt="University of Ottawa Logo" class="logo left-logo">
+
+  <h1>Nuclear Medicine Teaching Files</h1>
+
+  <img src="The_Ottawa_Hospital_Logo.png" alt="The Ottawa Hospital Logo" class="logo right-logo">
+</header>
+
+<p class="subtitle">
+  All content is anonymized and intended for educational purposes only.
+</p>
+
+  <h1>Lung Studies – Case #1</h1>
+
+  <h2>Patient Information:</h2>
+  <div class="section">
+    <ul>
+        <li>31-year-old female PE suspected low pretest probability.</li>
+    </ul>
+    <div class="placeholder">
+    </div>
+  </div>
+
+  <h2>Images</h2>
+  <div class="section">
+     <figure>
+    <img src="https://res.cloudinary.com/do6nucmhv/image/upload/v1771293371/Screenshot_2026-02-16_at_8.56.06_PM_dedjol.png"
+      alt="Ventilation and Perfusion Images">
+    <figcaption><strong>Figure 1.</strong></figcaption>
+  </figure>
+    <div class="placeholder">
+    </div>
+  </div>
+
+  <h2>Impression</h2>
+  <div class="section">
+    <ul>
+      <li>What is your differential diagnosis?</li>
+      <li>What sign(s) are evident on these images?</li>
+      <li>What diagnosis is most likely?</li>
+    </ul>
+  </div>
+
+  <h2>Findings</h2>
+  <div class="section">
+    <details>
+      <summary>🔍 Click to reveal findings</summary>
+
+      <p><strong>Key Findings:</strong></p>
+      <ul>
+        <li>Description of imaging findings</li>
+        <li>Fig-1: Ventilation (top)- perfusion (bottom) scan demonstrates complete perfusion defects in the right lung with preserved ventilation.</li>
+      </ul>
+
+      <p><strong>Diagnosis:</strong> </p>
+      <ul>
+        <li>Congenital heart disease with Fontan anastomosis complicated with right pulmonary artery occlusion.</li>
+      </ul>
+
+      <p><strong>Summarized Report:</strong></p>
+      <ul>
+      <li>The VQ scan using Tc99m Technegas aerosol for ventilation and  Tc99m MAA for perfusion  study demonstrates normal ventilation in both lungs. </li>
+      <li>There is no perfusion to the right lung with preserved perfusion to the left lung.</li>
+      </ul>
+        
+      <p><strong>Teaching Points:</strong></p>
+      <ul>
+      <li>The patient was diagnosed with congenital tricuspid atresia with concordant ventriculo-arterial connection who underwent corrective surgeries including: Waterston anastomosis, Bidirectional Glenn and Fontan procedure.</li>
+      <li>The surgery complicated due to failing Fontan with significant cyanosis and occluded RPA.</li>
+      <li>The patient finally underwent heart transplant for congenital heart disease with single lung (L) anastomosis, the right lung received perfusion from systemic circulation through bronchial arteries.</li>
+      <li>Common causes of unilateral V/Q mismatched defects are as follows:</li>
+      <li>Pulmonary embolism (less common because the patient is usually to unstable to undergo for VQ scan)</li>
+      <li>Fibrosing mediastinitis</li>
+      <li>Hilar malignant tumor (blocking pulmonary artery)</li>
+      <li>Pulmonary vein stenosis</li>
+      <li>Pulmonary fibrosis (after unilateral lung transplant)</li>
+      <li>Compression of the pulmonary artery by thoracic artery dissection</li>
+      <li>Fibrothorax</li>
+      <li>Swayer James</li>
+      <li>Congenital anomalies i.e. pulmonary arteries or veins stenosis</li>
+      <li>omplication of Fontan Procedure</li>
+      </ul>
+    </details>
+  </div>
+
+</body>
+<script>
+function searchCases() {
+  const input = document.getElementById("searchInput");
+  const filter = input.value.toLowerCase();
+  const cases = document.getElementsByClassName("case");
+
+  for (let i = 0; i < cases.length; i++) {
+    const text = cases[i].innerText.toLowerCase();
+    cases[i].style.display = text.includes(filter) ? "" : "none";
+  }
+}
+</script>
+<script>
+function toggleDropdown(id) {
+  const dropdowns = document.getElementsByClassName("dropdown-content");
+  for (let i = 0; i < dropdowns.length; i++) {
+    dropdowns[i].classList.remove("show");
+  }
+  document.getElementById(id).classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    const dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].classList.remove("show");
+    }
+  }
+}
+</script>
+</html>
