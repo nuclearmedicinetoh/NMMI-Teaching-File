@@ -144,9 +144,10 @@
   border-radius: 6px;
   overflow: hidden;
   z-index: 1001;
+  flex-direction: column;
 }
 .dropdown-content a {
-  color: #005EB8;
+  color: #005EB8 !important;
   padding: 10px 14px;
   text-decoration: none;
   display: block;
@@ -157,6 +158,15 @@
 }
 .show {
   display: block;
+}
+.dropdown-content .dropdown {
+  display: block;
+  width: 100%;
+}
+.dropdown-content .dropdown-content {
+  left: 100%;
+  top: 0;
+  margin-top: 0;
 }
   </style>
 </head>
