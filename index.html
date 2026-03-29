@@ -170,6 +170,10 @@
   top: 0;
   margin-top: 0;
 }
+.top-nav .dropdown-content a,
+.top-nav .dropdown-content button {
+  color: #005EB8 !important;
+}
   </style>
 </head>
 
@@ -320,9 +324,9 @@
       </button>
     <div class="dropdown-content" id="moreDropdown">
      <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('brainDropdown', event)">
+      <a href="#" class="dropbtn" onclick="toggleDropdown('brainDropdown', event)">
         Central Nervous System ▾
-      </button>
+      </a>
       <div class="dropdown-content" id="brainDropdown">
         <a href="brain_case1.html">Case #1 </a>
         <a href="brain_case2.html">Case #2 </a>
@@ -337,9 +341,9 @@
       </div>
     </div>
      <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('InflammatoryDropdown', event)">
+      <a href="#" class="dropbtn" onclick="toggleDropdown('InflammatoryDropdown', event)">
         Inflammation ▾
-      </button>
+      </a>
       <div class="dropdown-content" id="InflammatoryDropdown">
         <a href="Inflammatory_case1.html">Case #1 </a>
         <a href="Inflammatory_case2.html">Case #2 </a>
@@ -354,9 +358,9 @@
       </div>
     </div>
     <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('InfectionDropdown', event)">
+      <a href="#" class="dropbtn" onclick="toggleDropdown('InfectionDropdown', event)">
         Infection ▾
-      </button>
+      </a>
       <div class="dropdown-content" id="InfectionDropdown">
         <a href="Infection_case1.html">Case #1 </a>
         <a href="Infection_case2.html">Case #2 </a>
@@ -371,9 +375,9 @@
       </div>
     </div>
       <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('cardiacDropdown', event)">
+      <a href="#" class="dropbtn" onclick="toggleDropdown('cardiacDropdown', event)">
         Cardiovascular ▾
-      </button>
+      </a>
       <div class="dropdown-content" id="cardiacDropdown">
         <a href="cardiac_case1.html">Case #1 </a>
         <a href="cardiac_case2.html">Case #2 </a>
@@ -388,9 +392,9 @@
       </div>
   </div>
   <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('PharmacyDropdown', event)">
+      <a href="#" class="dropbtn" onclick="toggleDropdown('PharmacyDropdown', event)">
         Radiopharmacy ▾
-      </button>
+      </a>
       <div class="dropdown-content" id="PharmacyDropdown">
         <a href="Pharmacy_case1.html">Case #1 </a>
         <a href="Pharmacy_case2.html">Case #2 </a>
@@ -405,9 +409,9 @@
       </div>
   </div>
   <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('PhysicsDropdown', event)">
+      <a href="#" class="dropbtn" onclick="toggleDropdown('PhysicsDropdown', event)">
         Physics ▾
-      </button>
+      </a>
       <div class="dropdown-content" id="PhysicsDropdown">
         <a href="Physics_case1.html">Case #1 </a>
         <a href="Physics_case2.html">Case #2 </a>
@@ -422,9 +426,9 @@
       </div>
   </div>
   <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('InstrumentationDropdown', event)">
+      <a href="#" class="dropbtn" onclick="toggleDropdown('InstrumentationDropdown', event)">
         Instrumentation ▾
-      </button>
+      </a>
       <div class="dropdown-content" id="InstrumentationDropdown">
         <a href="Instrumentation_case1.html">Case #1 </a>
         <a href="Instrumentation_case2.html">Case #2 </a>
@@ -439,9 +443,9 @@
       </div>
   </div>
   <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('ArtifactsDropdown', event)">
+      <a href="#" class="dropbtn" onclick="toggleDropdown('ArtifactsDropdown', event)">
         Artifacts ▾
-      </button>
+      </a>
       <div class="dropdown-content" id="ArtifactsDropdown">
         <a href="Artifacts_case1.html">Case #1 </a>
         <a href="Artifacts_case2.html">Case #2 </a>
@@ -456,9 +460,9 @@
       </div>
   </div>
   <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('othersDropdown', event)">
+      <a href="#" class="dropbtn" onclick="toggleDropdown('othersDropdown', event)">
         Others ▾
-      </button>
+       </a>
       <div class="dropdown-content" id="othersDropdown">
         <a href="others_case1.html">Case #1 </a>
         <a href="others_case2.html">Case #2 </a>
@@ -579,6 +583,11 @@ function searchCases() {
 function toggleDropdown(id, event) {
   event.stopPropagation();
   const el = document.getElementById(id);
+  const parent = el.parentElement.parentElement;
+  const siblings = parent.querySelectorAll(':scope > .dropdown .dropdown-content');
+  siblings.forEach(d => {
+    if (d !== el) d.classList.remove("show");
+  });
   el.classList.toggle("show");
 }
 window.onclick = function(event) {
