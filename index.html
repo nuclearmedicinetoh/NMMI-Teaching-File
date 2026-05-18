@@ -82,6 +82,19 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       text-align: center;
     }
+    .header-center {
+      grid-column: 2;
+      justify-self: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .third-logo {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+    }
     .logo {
       height: 140px;
       width: auto;
@@ -96,20 +109,51 @@
       margin-bottom: 40px;
       font-size: 1.05em;
     }
- 
     .case {
       background: white;
-      padding: 30px 36px;
       margin-bottom: 30px;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      overflow: hidden;
     }
-    .case h2 {
-      margin-top: 0;
-      margin-bottom: 16px;
+    .case-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 36px;
+      cursor: pointer;
+      user-select: none;
+      background: white;
+      transition: background 0.15s;
+    }
+    .case-header:hover {
+      background: #f0f4f8;
+    }
+    .case-header h2 {
+      margin: 0;
       color: #003f80;
+      font-size: 1.25em;
     }
- 
+    .case-toggle-icon {
+      font-size: 1.2em;
+      color: #005EB8;
+      font-weight: 700;
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .case-header.open .case-toggle-icon {
+      transform: rotate(180deg);
+    }
+    .case-body {
+      padding: 0 36px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s ease;
+    }
+    .case-body.open {
+      max-height: 2000px;
+      padding: 0 36px 30px 36px;
+    }
     .case p {
       margin: 0;
       line-height: 1.75;
@@ -247,6 +291,57 @@
     .dropdown-content button.dropbtn:hover {
       background-color: #f0f4f8;
     }
+    #searchResults {
+      display: none;
+      position: fixed;
+      top: 58px;
+      right: 30px;
+      width: 340px;
+      max-height: 400px;
+      overflow-y: auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+      z-index: 2000;
+      padding: 8px 0;
+    }
+    #searchResults .result-item {
+      padding: 12px 18px;
+      cursor: pointer;
+      border-bottom: 1px solid #eee;
+      transition: background 0.12s;
+    }
+    #searchResults .result-item:last-child {
+      border-bottom: none;
+    }
+    #searchResults .result-item:hover {
+      background: #f0f4f8;
+    }
+    #searchResults .result-title {
+      font-weight: 700;
+      color: #003f80;
+      font-size: 0.95em;
+      margin-bottom: 3px;
+    }
+    #searchResults .result-snippet {
+      font-size: 0.82em;
+      color: #555;
+      line-height: 1.45;
+    }
+    #searchResults .result-snippet mark {
+      background: #fff3cd;
+      border-radius: 2px;
+      padding: 0 2px;
+    }
+    #searchResults .no-results {
+      padding: 18px;
+      color: #888;
+      font-size: 0.95em;
+      text-align: center;
+    }
+    #indexesDropdown {
+      min-width: 200px;
+    }
   </style>
 </head>
  
@@ -255,6 +350,14 @@
 <nav class="top-nav">
   <div class="nav-left">
     <a href="index.html" class="nav-logo">NMMI Teaching Files</a>
+ 
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('indexesDropdown', event)">Indexes ▾</button>
+      <div class="dropdown-content" id="indexesDropdown">
+        <a href="cases_by_system.html">Cases by Organ System</a>
+        <a href="cases_by_diagnosis.html">Cases by Diagnosis</a>
+      </div>
+    </div>
  
     <div class="dropdown">
       <button class="dropbtn" onclick="toggleDropdown('boneDropdown', event)">Skeletal ▾</button>
@@ -540,13 +643,20 @@
     <input type="text"
       id="searchInput"
       placeholder="Search cases..."
-      onkeyup="searchCases()">
+      oninput="searchCases()"
+      onkeydown="handleSearchKey(event)"
+      autocomplete="off">
+    <div id="searchResults"></div>
   </div>
 </nav>
  
 <header class="site-header">
   <img src="UOttawa_Med_Logo.png" alt="uOttawa Medicine Logo" class="logo left-logo">
-  <h1>Nuclear Medicine Teaching Files</h1>
+  <div class="header-center">
+    <h1>Nuclear Medicine Teaching Files</h1>
+    <img src="Nuc_Med_Logo.png" alt="Third Logo" class="third-logo"
+      onerror="this.style.display='none'">
+  </div>
   <img src="The_Ottawa_Hospital_Logo.png" alt="The Ottawa Hospital Logo" class="logo right-logo">
 </header>
  
@@ -554,100 +664,140 @@
   All content is anonymized and intended for educational purposes only.
 </p>
  
-<div class="case">
-  <h2>About the Website</h2>
-  <p>
-    Welcome to the Division of Nuclear Medicine and Molecular Imaging Teaching File Repository.
-  </p>
-  <p>
-    This website was developed using teaching cases contributed by our division to support education in Nuclear Medicine and Molecular Imaging.
-    We also encourage collaborative case sharing with divisions and departments across the country in order to foster a comprehensive educational resource and promote academic exchange within the medical imaging community.
-  </p>
-  <p>
-    Each section of the repository is dedicated to a specific imaging modality or study type. Cases are structured to encourage an image-first approach to interpretation, allowing learners to independently review imaging findings before accessing the diagnosis, key teaching points, and final impressions.
-  </p>
-  <p>
-    Through this format, the repository aims to support trainees, technologists, residents, fellows, and practicing physicians in developing systematic image interpretation skills while broadening their exposure to a diverse range of clinical cases.
-  </p>
+<div class="case" id="section-about">
+  <div class="case-header" onclick="toggleSection('about')">
+    <h2>About the Website</h2>
+    <span class="case-toggle-icon">▼</span>
+  </div>
+  <div class="case-body" id="body-about">
+    <p>
+      Welcome to the Division of Nuclear Medicine and Molecular Imaging Teaching File Repository.
+    </p>
+    <p>
+      This website was developed using teaching cases contributed by our division to support education in Nuclear Medicine and Molecular Imaging.
+      We also encourage collaborative case sharing with divisions and departments across the country in order to foster a comprehensive educational resource and promote academic exchange within the medical imaging community.
+    </p>
+    <p>
+      Each section of the repository is dedicated to a specific imaging modality or study type. Cases are structured to encourage an image-first approach to interpretation, allowing learners to independently review imaging findings before accessing the diagnosis, key teaching points, and final impressions.
+    </p>
+    <p>
+      Through this format, the repository aims to support trainees, technologists, residents, fellows, and practicing physicians in developing systematic image interpretation skills while broadening their exposure to a diverse range of clinical cases.
+    </p>
+  </div>
 </div>
  
-<div class="case">
-  <h2>Website Case Indexes</h2>
-  <p>Please use the following links above to browse all of our cases by either of the following views:</p>
-  <ul class="case-links-list">
-    <li><a href="cases_by_system.html">Cases by Organ System</a></li>
-    <li><a href="cases_by_diagnosis.html">Cases by Diagnosis</a></li>
-  </ul>
+<div class="case" id="section-indexes">
+  <div class="case-header" onclick="toggleSection('indexes')">
+    <h2>Website Case Indexes</h2>
+    <span class="case-toggle-icon">▼</span>
+  </div>
+  <div class="case-body" id="body-indexes">
+    <p>Please use the following links above to browse all of our cases by either of the following views:</p>
+    <ul class="case-links-list">
+      <li><a href="cases_by_system.html">Cases by Organ System</a></li>
+      <li><a href="cases_by_diagnosis.html">Cases by Diagnosis</a></li>
+    </ul>
+  </div>
 </div>
  
-<div class="case">
-  <h2>Who We Are</h2>
-  <p>
-    The Division of Nuclear Medicine and Molecular Imaging at University of Ottawa is part of the Department of Medicine and operates across the General, Civic, and Riverside campuses of The Ottawa Hospital.
-  </p>
-  <p>
-    Our division is composed of staff physicians, clinical fellows, residents, physicists, graduate students, technologists, and administrative personnel dedicated to clinical excellence, education, and research in Nuclear Medicine and Molecular Imaging.
-  </p>
-  <p>
-    The University of Ottawa Nuclear Medicine Residency Program transitioned to the Competence by Design (CBD) curriculum in 2020, reflecting our ongoing commitment to excellence in postgraduate medical education and competency-based training.
-  </p>
+<div class="case" id="section-whoweare">
+  <div class="case-header" onclick="toggleSection('whoweare')">
+    <h2>Who We Are</h2>
+    <span class="case-toggle-icon">▼</span>
+  </div>
+  <div class="case-body" id="body-whoweare">
+    <p>
+      The Division of Nuclear Medicine and Molecular Imaging at University of Ottawa is part of the Department of Medicine and operates across the General, Civic, and Riverside campuses of The Ottawa Hospital.
+    </p>
+    <p>
+      Our division is composed of staff physicians, clinical fellows, residents, physicists, graduate students, technologists, and administrative personnel dedicated to clinical excellence, education, and research in Nuclear Medicine and Molecular Imaging.
+    </p>
+    <p>
+      The University of Ottawa Nuclear Medicine Residency Program transitioned to the Competence by Design (CBD) curriculum in 2020, reflecting our ongoing commitment to excellence in postgraduate medical education and competency-based training.
+    </p>
+  </div>
 </div>
  
-<div class="case">
-  <h2>Leadership and Contributors</h2>
-  <ul>
-    <li><b>Division Head:</b> Dr. Eugene Leung, MD, FRCPC</li>
-    <li><b>Program Director and Teaching File Website Director:</b> Dr. Alireza Khatami, MD, MSc, ABNM, CBNC, CBCCT</li>
-    <li><b>Contributing Institution Site Director:</b> Dr. Farzad Abbaspour, MD, FRCPC, McGill University</li>
-    <li><b>Site Administrators:</b> Dr. Sebastian Mavromatis, MD &nbsp;·&nbsp; Louise Brazeau, Program Administrator</li>
-  </ul>
+<div class="case" id="section-leadership">
+  <div class="case-header" onclick="toggleSection('leadership')">
+    <h2>Leadership and Contributors</h2>
+    <span class="case-toggle-icon">▼</span>
+  </div>
+  <div class="case-body" id="body-leadership">
+    <ul>
+      <li><b>Division Head:</b> Dr. Eugene Leung, MD, FRCPC</li>
+      <li><b>Program Director and Teaching File Website Director:</b> Dr. Alireza Khatami, MD, MSc, ABNM, CBNC, CBCCT</li>
+      <li><b>Contributing Institution Site Director:</b> Dr. Farzad Abbaspour, MD, FRCPC, McGill University</li>
+      <li><b>Site Administrators:</b> Dr. Sebastian Mavromatis, MD &nbsp;·&nbsp; Louise Brazeau, Program Administrator</li>
+    </ul>
+  </div>
 </div>
  
-<div class="case">
-  <h2>Contributing Staff Physicians</h2>
-  <ul>
-    <li>Dr. Farzad Abbaspour, MD</li>
-    <li>Dr. Sadri Bazarjani, MD</li>
-    <li>Dr. Alireza Khatami, MD</li>
-    <li>Dr. Ran Klein, PhD, Imaging Physicist</li>
-    <li>Dr. Eugene Leung, MD</li>
-    <li>Dr. Xuan Pham, MD</li>
-    <li>Dr. Francois Raymond, MD</li>
-    <li>Dr. Christiane Wiefels, MD, PhD</li>
-    <li>Dr. Wanzhen Zeng, MD, PhD</li>
-  </ul>
+<div class="case" id="section-staff">
+  <div class="case-header" onclick="toggleSection('staff')">
+    <h2>Contributing Staff Physicians</h2>
+    <span class="case-toggle-icon">▼</span>
+  </div>
+  <div class="case-body" id="body-staff">
+    <ul>
+      <li>Dr. Farzad Abbaspour, MD</li>
+      <li>Dr. Sadri Bazarjani, MD</li>
+      <li>Dr. Alireza Khatami, MD</li>
+      <li>Dr. Ran Klein, PhD, Imaging Physicist</li>
+      <li>Dr. Eugene Leung, MD</li>
+      <li>Dr. Xuan Pham, MD</li>
+      <li>Dr. Francois Raymond, MD</li>
+      <li>Dr. Christiane Wiefels, MD, PhD</li>
+      <li>Dr. Wanzhen Zeng, MD, PhD</li>
+    </ul>
+  </div>
 </div>
  
-<div class="case">
-  <h2>Contributing Fellows &amp; Residents</h2>
-  <ul>
-    <li>Dr. Sebastian Mavromatis, MD</li>
-    <li>Dr. Ghazal Norouzi, MD</li>
-    <li>Dr. Veronika Svistkova, MDCM, MSc., MASc. (OT)</li>
-  </ul>
+<div class="case" id="section-fellows">
+  <div class="case-header" onclick="toggleSection('fellows')">
+    <h2>Contributing Fellows &amp; Residents</h2>
+    <span class="case-toggle-icon">▼</span>
+  </div>
+  <div class="case-body" id="body-fellows">
+    <ul>
+      <li>Dr. Sebastian Mavromatis, MD</li>
+      <li>Dr. Ghazal Norouzi, MD</li>
+      <li>Dr. Veronika Svistkova, MDCM, MSc., MASc. (OT)</li>
+    </ul>
+  </div>
 </div>
  
-<div class="case">
-  <h2>Goals and Objectives</h2>
-  <ul>
-    <li>Provide case-based learning covering core nuclear medicine studies.</li>
-    <li>Reinforce interpretation skills through examples with explanations.</li>
-    <li>Highlight common, rare, and high-yield pathologies encountered in clinical practice.</li>
-    <li>Integrate relevant anatomy, physiology, and radiopharmaceutical principles.</li>
-    <li>Develop systematic approaches to image interpretation.</li>
-    <li>Encourage differential diagnosis formulation based on imaging patterns.</li>
-    <li>Correlate nuclear imaging findings with clinical presentation and other modalities.</li>
-  </ul>
+<div class="case" id="section-goals">
+  <div class="case-header" onclick="toggleSection('goals')">
+    <h2>Goals and Objectives</h2>
+    <span class="case-toggle-icon">▼</span>
+  </div>
+  <div class="case-body" id="body-goals">
+    <ul>
+      <li>Provide case-based learning covering core nuclear medicine studies.</li>
+      <li>Reinforce interpretation skills through examples with explanations.</li>
+      <li>Highlight common, rare, and high-yield pathologies encountered in clinical practice.</li>
+      <li>Integrate relevant anatomy, physiology, and radiopharmaceutical principles.</li>
+      <li>Develop systematic approaches to image interpretation.</li>
+      <li>Encourage differential diagnosis formulation based on imaging patterns.</li>
+      <li>Correlate nuclear imaging findings with clinical presentation and other modalities.</li>
+    </ul>
+  </div>
 </div>
  
-<div class="case">
-  <h2>How to Use These Cases</h2>
-  <ul>
-    <li>Review relevant information about the case (e.g. age, symptoms, clinical question).</li>
-    <li>Review the images.</li>
-    <li>Formulate a differential diagnosis.</li>
-    <li>Compare your interpretation with the provided findings and impression.</li>
-  </ul>
+<div class="case" id="section-howto">
+  <div class="case-header" onclick="toggleSection('howto')">
+    <h2>How to Use These Cases</h2>
+    <span class="case-toggle-icon">▼</span>
+  </div>
+  <div class="case-body" id="body-howto">
+    <ul>
+      <li>Review relevant information about the case (e.g. age, symptoms, clinical question).</li>
+      <li>Review the images.</li>
+      <li>Formulate a differential diagnosis.</li>
+      <li>Compare your interpretation with the provided findings and impression.</li>
+    </ul>
+  </div>
 </div>
  
 <footer>
@@ -659,37 +809,136 @@
 </footer>
  
 <script>
-function searchCases() {
-  const input = document.getElementById("searchInput");
-  const filter = input.value.toLowerCase();
-  const cases = document.getElementsByClassName("case");
-  for (let i = 0; i < cases.length; i++) {
-    const text = cases[i].innerText.toLowerCase();
-    cases[i].style.display = text.includes(filter) ? "" : "none";
+  function toggleSection(id) {
+    const header = document.querySelector(`#section-${id} .case-header`);
+    const body   = document.getElementById(`body-${id}`);
+    header.classList.toggle('open');
+    body.classList.toggle('open');
   }
-}
-</script>
  
-<script>
-function toggleDropdown(id, event) {
-  event.stopPropagation();
-  const current = document.getElementById(id);
-  const container = current.closest('.dropdown');
-  const siblingDropdowns = container.parentElement.querySelectorAll(':scope > .dropdown .dropdown-content');
-  siblingDropdowns.forEach(d => {
-    if (d !== current) d.classList.remove("show");
-  });
-  current.classList.toggle("show");
-}
+  const sectionMeta = [
+    { id: 'about',      title: 'About the Website' },
+    { id: 'indexes',    title: 'Website Case Indexes' },
+    { id: 'whoweare',   title: 'Who We Are' },
+    { id: 'leadership', title: 'Leadership and Contributors' },
+    { id: 'staff',      title: 'Contributing Staff Physicians' },
+    { id: 'fellows',    title: 'Contributing Fellows & Residents' },
+    { id: 'goals',      title: 'Goals and Objectives' },
+    { id: 'howto',      title: 'How to Use These Cases' },
+  ];
  
-window.onclick = function(event) {
-  if (!event.target.closest('.dropdown')) {
-    const dropdowns = document.getElementsByClassName("dropdown-content");
-    for (let i = 0; i < dropdowns.length; i++) {
-      dropdowns[i].classList.remove("show");
+  function highlight(text, query) {
+    if (!query) return text;
+    const re = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    return text.replace(re, '<mark>$1</mark>');
+  }
+ 
+  function getSnippet(text, query, maxLen = 120) {
+    const lower = text.toLowerCase();
+    const idx   = lower.indexOf(query.toLowerCase());
+    if (idx === -1) return text.slice(0, maxLen) + (text.length > maxLen ? '…' : '');
+    const start = Math.max(0, idx - 40);
+    const end   = Math.min(text.length, idx + query.length + 80);
+    return (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+  }
+ 
+  function searchCases() {
+    const query   = document.getElementById('searchInput').value.trim();
+    const panel   = document.getElementById('searchResults');
+ 
+    if (query.length < 2) {
+      panel.style.display = 'none';
+      panel.innerHTML = '';
+      return;
+    }
+ 
+    const results = [];
+ 
+    sectionMeta.forEach(({ id, title }) => {
+      const body = document.getElementById(`body-${id}`);
+      if (!body) return;
+      const bodyText = body.innerText || body.textContent || '';
+      const combined = title + ' ' + bodyText;
+      if (combined.toLowerCase().includes(query.toLowerCase())) {
+        const snippet = getSnippet(bodyText, query);
+        results.push({ id, title, snippet });
+      }
+    });
+ 
+    if (results.length === 0) {
+      panel.innerHTML = '<div class="no-results">No matching sections found.</div>';
+    } else {
+      panel.innerHTML = results.map((r, i) =>
+        `<div class="result-item" data-id="${r.id}" tabindex="0"
+              onclick="jumpToSection('${r.id}')"
+              onkeydown="if(event.key==='Enter') jumpToSection('${r.id}')">
+           <div class="result-title">${highlight(r.title, query)}</div>
+           <div class="result-snippet">${highlight(r.snippet, query)}</div>
+         </div>`
+      ).join('');
+    }
+ 
+    panel.style.display = 'block';
+  }
+ 
+  function jumpToSection(id) {
+
+    const header = document.querySelector(`#section-${id} .case-header`);
+    const body   = document.getElementById(`body-${id}`);
+    if (header && !header.classList.contains('open')) {
+      header.classList.add('open');
+      body.classList.add('open');
+    }
+
+    const section = document.getElementById(`section-${id}`);
+    if (section) {
+      setTimeout(() => {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+    }
+
+    document.getElementById('searchResults').style.display = 'none';
+    document.getElementById('searchInput').value = '';
+  }
+ 
+  function handleSearchKey(e) {
+    if (e.key === 'Escape') {
+      document.getElementById('searchResults').style.display = 'none';
+    }
+    if (e.key === 'Enter') {
+      const firstResult = document.querySelector('#searchResults .result-item');
+      if (firstResult) firstResult.click();
     }
   }
-}
+ 
+  // Close search panel when clicking outside
+  document.addEventListener('click', function(e) {
+    const input  = document.getElementById('searchInput');
+    const panel  = document.getElementById('searchResults');
+    if (!input.contains(e.target) && !panel.contains(e.target)) {
+      panel.style.display = 'none';
+    }
+  });
+  
+  function toggleDropdown(id, event) {
+    event.stopPropagation();
+    const current   = document.getElementById(id);
+    const container = current.closest('.dropdown');
+    const siblingDropdowns = container.parentElement.querySelectorAll(':scope > .dropdown .dropdown-content');
+    siblingDropdowns.forEach(d => {
+      if (d !== current) d.classList.remove("show");
+    });
+    current.classList.toggle("show");
+  }
+ 
+  window.onclick = function(event) {
+    if (!event.target.closest('.dropdown')) {
+      const dropdowns = document.getElementsByClassName("dropdown-content");
+      for (let i = 0; i < dropdowns.length; i++) {
+        dropdowns[i].classList.remove("show");
+      }
+    }
+  }
 </script>
 </body>
 </html>
