@@ -53,7 +53,7 @@
       background: #f5f5f5;
       position: relative;
     }
-
+ 
     body::before {
       content: '';
       position: fixed;
@@ -134,7 +134,27 @@
     .case li:last-child {
       margin-bottom: 0;
     }
-
+ 
+    /* Website Cases link list styling */
+    .case-links-list {
+      list-style: disc;
+      padding-left: 26px;
+      margin: 12px 0 0 0;
+    }
+    .case-links-list li {
+      margin-bottom: 10px;
+      line-height: 1.65;
+    }
+    .case-links-list a {
+      color: #005EB8;
+      text-decoration: none;
+      font-size: 1.05em;
+      font-weight: 600;
+    }
+    .case-links-list a:hover {
+      text-decoration: underline;
+    }
+ 
     .section-list {
       list-style: none;
       padding: 0;
@@ -556,6 +576,16 @@
   <p>
     Through this format, the repository aims to support trainees, technologists, residents, fellows, and practicing physicians in developing systematic image interpretation skills while broadening their exposure to a diverse range of clinical cases.
   </p>
+</div>
+ 
+<!-- NEW: Website Cases box -->
+<div class="case">
+  <h2>Website Cases</h2>
+  <p>Browse all cases using one of the following views:</p>
+  <ul class="case-links-list">
+    <li><a href="cases_by_system.html">Cases by System</a></li>
+    <li><a href="cases_by_diagnosis.html">Cases by Diagnosis</a></li>
+  </ul>
 </div>
  
 <div class="case">
