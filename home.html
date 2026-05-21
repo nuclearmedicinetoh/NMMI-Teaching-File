@@ -40,7 +40,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 40px;
+      padding: 30px 40px 90px 40px;
       background: #f5f5f5;
       position: relative;
     }
@@ -74,25 +74,26 @@
     .title-part {
       margin: 0;
       color: #005EB8;
-      font-size: 2.8em;
+      font-size: 3.4em;
       font-weight: 700;
       letter-spacing: 0.5px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       white-space: nowrap;
     }
     .third-logo {
-      height: 60px;
+      height: 90px;
       width: auto;
       object-fit: contain;
     }
     .logo {
-      height: 140px;
+      height: 100px;
       width: auto;
       object-fit: contain;
     }
     .left-logo  { justify-self: start; }
     .right-logo { justify-self: end; }
 
+    /* Enter Here button area */
     .home-enter {
       display: flex;
       justify-content: center;
@@ -118,11 +119,17 @@
     }
 
     footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
       text-align: center;
-      margin-top: 60px;
+      padding: 14px 20px;
+      background: rgba(0, 0, 0, 0.45);
       color: #fff;
       font-size: 0.9em;
       line-height: 1.8;
+      z-index: 100;
     }
     .dropdown { position: relative; display: inline-block; }
     .dropbtn {
@@ -181,225 +188,6 @@
 
 <body>
 
-<nav class="top-nav">
-  <div class="nav-left">
-
-    <div class="dropdown">
-      <button class="dropbtn nav-logo" onclick="toggleDropdown('homeDropdown', event)">NMMI Teaching Files ▾</button>
-      <div class="dropdown-content" id="homeDropdown">
-        <a href="home.html">Home Page</a>
-        <a href="index.html">Index Page</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('indexesDropdown', event)">Indexes ▾</button>
-      <div class="dropdown-content" id="indexesDropdown">
-        <a href="cases_by_system.html">Cases by Organ System</a>
-        <a href="cases_by_diagnosis.html">Cases by Diagnosis</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('boneDropdown', event)">Skeletal ▾</button>
-      <div class="dropdown-content" id="boneDropdown">
-        <a href="bone_case1.html">Case #1</a><a href="bone_case2.html">Case #2</a>
-        <a href="bone_case3.html">Case #3</a><a href="bone_case4.html">Case #4</a>
-        <a href="bone_case5.html">Case #5</a><a href="bone_case6.html">Case #6</a>
-        <a href="bone_case7.html">Case #7</a><a href="bone_case8.html">Case #8</a>
-        <a href="bone_case9.html">Case #9</a><a href="bone_case10.html">Case #10</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('lungDropdown', event)">Pulmonary ▾</button>
-      <div class="dropdown-content" id="lungDropdown">
-        <a href="lung_case1.html">Case #1</a><a href="lung_case2.html">Case #2</a>
-        <a href="lung_case3.html">Case #3</a><a href="lung_case4.html">Case #4</a>
-        <a href="lung_case5.html">Case #5</a><a href="lung_case6.html">Case #6</a>
-        <a href="lung_case7.html">Case #7</a><a href="lung_case8.html">Case #8</a>
-        <a href="lung_case9.html">Case #9</a><a href="lung_case10.html">Case #10</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('endocrineDropdown', event)">Endocrine ▾</button>
-      <div class="dropdown-content" id="endocrineDropdown">
-        <a href="endocrine_case1.html">Case #1</a><a href="endocrine_case2.html">Case #2</a>
-        <a href="endocrine_case3.html">Case #3</a><a href="endocrine_case4.html">Case #4</a>
-        <a href="endocrine_case5.html">Case #5</a><a href="endocrine_case6.html">Case #6</a>
-        <a href="endocrine_case7.html">Case #7</a><a href="endocrine_case8.html">Case #8</a>
-        <a href="endocrine_case9.html">Case #9</a><a href="endocrine_case10.html">Case #10</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('HepatoBiliaryDropdown', event)">Hepato-Biliary ▾</button>
-      <div class="dropdown-content" id="HepatoBiliaryDropdown">
-        <a href="HepatoBiliary_case1.html">Case #1</a><a href="HepatoBiliary_case2.html">Case #2</a>
-        <a href="HepatoBiliary_case3.html">Case #3</a><a href="HepatoBiliary_case4.html">Case #4</a>
-        <a href="HepatoBiliary_case5.html">Case #5</a><a href="HepatoBiliary_case6.html">Case #6</a>
-        <a href="HepatoBiliary_case7.html">Case #7</a><a href="HepatoBiliary_case8.html">Case #8</a>
-        <a href="HepatoBiliary_case9.html">Case #9</a><a href="HepatoBiliary_case10.html">Case #10</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('GIDropdown', event)">GI ▾</button>
-      <div class="dropdown-content" id="GIDropdown">
-        <a href="Gastrointestinal_case1.html">Case #1</a><a href="Gastrointestinal_case2.html">Case #2</a>
-        <a href="Gastrointestinal_case3.html">Case #3</a><a href="Gastrointestinal_case4.html">Case #4</a>
-        <a href="Gastrointestinal_case5.html">Case #5</a><a href="Gastrointestinal_case6.html">Case #6</a>
-        <a href="Gastrointestinal_case7.html">Case #7</a><a href="Gastrointestinal_case8.html">Case #8</a>
-        <a href="Gastrointestinal_case9.html">Case #9</a><a href="Gastrointestinal_case10.html">Case #10</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('urinaryDropdown', event)">G-U ▾</button>
-      <div class="dropdown-content" id="urinaryDropdown">
-        <a href="urinary_case1.html">Case #1</a><a href="urinary_case2.html">Case #2</a>
-        <a href="urinary_case3.html">Case #3</a><a href="urinary_case4.html">Case #4</a>
-        <a href="urinary_case5.html">Case #5</a><a href="urinary_case6.html">Case #6</a>
-        <a href="urinary_case7.html">Case #7</a><a href="urinary_case8.html">Case #8</a>
-        <a href="urinary_case9.html">Case #9</a><a href="urinary_case10.html">Case #10</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('petDropdown', event)">PET-CT ▾</button>
-      <div class="dropdown-content" id="petDropdown">
-        <a href="pet_case1.html">Case #1</a><a href="pet_case2.html">Case #2</a>
-        <a href="pet_case3.html">Case #3</a><a href="pet_case4.html">Case #4</a>
-        <a href="pet_case5.html">Case #5</a><a href="pet_case6.html">Case #6</a>
-        <a href="pet_case7.html">Case #7</a><a href="pet_case8.html">Case #8</a>
-        <a href="pet_case9.html">Case #9</a><a href="pet_case10.html">Case #10</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('OncologyDropdown', event)">Oncology ▾</button>
-      <div class="dropdown-content" id="OncologyDropdown">
-        <a href="Oncology_case1.html">Case #1</a><a href="Oncology_case2.html">Case #2</a>
-        <a href="Oncology_case3.html">Case #3</a><a href="Oncology_case4.html">Case #4</a>
-        <a href="Oncology_case5.html">Case #5</a><a href="Oncology_case6.html">Case #6</a>
-        <a href="Oncology_case7.html">Case #7</a><a href="Oncology_case8.html">Case #8</a>
-        <a href="Oncology_case9.html">Case #9</a><a href="Oncology_case10.html">Case #10</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('moreDropdown', event)">More ☰</button>
-      <div class="dropdown-content" id="moreDropdown">
-
-        <div class="dropdown">
-          <button class="dropbtn" onclick="toggleDropdown('brainDropdown', event)">Central Nervous System ▾</button>
-          <div class="dropdown-content" id="brainDropdown">
-            <a href="brain_case1.html">Case #1</a><a href="brain_case2.html">Case #2</a>
-            <a href="brain_case3.html">Case #3</a><a href="brain_case4.html">Case #4</a>
-            <a href="brain_case5.html">Case #5</a><a href="brain_case6.html">Case #6</a>
-            <a href="brain_case7.html">Case #7</a><a href="brain_case8.html">Case #8</a>
-            <a href="brain_case9.html">Case #9</a><a href="brain_case10.html">Case #10</a>
-          </div>
-        </div>
-
-        <div class="dropdown">
-          <button class="dropbtn" onclick="toggleDropdown('InflammatoryDropdown', event)">Inflammation ▾</button>
-          <div class="dropdown-content" id="InflammatoryDropdown">
-            <a href="Inflammatory_case1.html">Case #1</a><a href="Inflammatory_case2.html">Case #2</a>
-            <a href="Inflammatory_case3.html">Case #3</a><a href="Inflammatory_case4.html">Case #4</a>
-            <a href="Inflammatory_case5.html">Case #5</a><a href="Inflammatory_case6.html">Case #6</a>
-            <a href="Inflammatory_case7.html">Case #7</a><a href="Inflammatory_case8.html">Case #8</a>
-            <a href="Inflammatory_case9.html">Case #9</a><a href="Inflammatory_case10.html">Case #10</a>
-          </div>
-        </div>
-
-        <div class="dropdown">
-          <button class="dropbtn" onclick="toggleDropdown('InfectionDropdown', event)">Infection ▾</button>
-          <div class="dropdown-content" id="InfectionDropdown">
-            <a href="Infection_case1.html">Case #1</a><a href="Infection_case2.html">Case #2</a>
-            <a href="Infection_case3.html">Case #3</a><a href="Infection_case4.html">Case #4</a>
-            <a href="Infection_case5.html">Case #5</a><a href="Infection_case6.html">Case #6</a>
-            <a href="Infection_case7.html">Case #7</a><a href="Infection_case8.html">Case #8</a>
-            <a href="Infection_case9.html">Case #9</a><a href="Infection_case10.html">Case #10</a>
-          </div>
-        </div>
-
-        <div class="dropdown">
-          <button class="dropbtn" onclick="toggleDropdown('cardiacDropdown', event)">Cardiovascular ▾</button>
-          <div class="dropdown-content" id="cardiacDropdown">
-            <a href="cardiac_case1.html">Case #1</a><a href="cardiac_case2.html">Case #2</a>
-            <a href="cardiac_case3.html">Case #3</a><a href="cardiac_case4.html">Case #4</a>
-            <a href="cardiac_case5.html">Case #5</a><a href="cardiac_case6.html">Case #6</a>
-            <a href="cardiac_case7.html">Case #7</a><a href="cardiac_case8.html">Case #8</a>
-            <a href="cardiac_case9.html">Case #9</a><a href="cardiac_case10.html">Case #10</a>
-          </div>
-        </div>
-
-        <div class="dropdown">
-          <button class="dropbtn" onclick="toggleDropdown('PharmacyDropdown', event)">Radiopharmacy ▾</button>
-          <div class="dropdown-content" id="PharmacyDropdown">
-            <a href="Pharmacy_case1.html">Case #1</a><a href="Pharmacy_case2.html">Case #2</a>
-            <a href="Pharmacy_case3.html">Case #3</a><a href="Pharmacy_case4.html">Case #4</a>
-            <a href="Pharmacy_case5.html">Case #5</a><a href="Pharmacy_case6.html">Case #6</a>
-            <a href="Pharmacy_case7.html">Case #7</a><a href="Pharmacy_case8.html">Case #8</a>
-            <a href="Pharmacy_case9.html">Case #9</a><a href="Pharmacy_case10.html">Case #10</a>
-          </div>
-        </div>
-
-        <div class="dropdown">
-          <button class="dropbtn" onclick="toggleDropdown('PhysicsDropdown', event)">Physics ▾</button>
-          <div class="dropdown-content" id="PhysicsDropdown">
-            <a href="Physics_case1.html">Case #1</a><a href="Physics_case2.html">Case #2</a>
-            <a href="Physics_case3.html">Case #3</a><a href="Physics_case4.html">Case #4</a>
-            <a href="Physics_case5.html">Case #5</a><a href="Physics_case6.html">Case #6</a>
-            <a href="Physics_case7.html">Case #7</a><a href="Physics_case8.html">Case #8</a>
-            <a href="Physics_case9.html">Case #9</a><a href="Physics_case10.html">Case #10</a>
-          </div>
-        </div>
-
-        <div class="dropdown">
-          <button class="dropbtn" onclick="toggleDropdown('InstrumentationDropdown', event)">Instrumentation ▾</button>
-          <div class="dropdown-content" id="InstrumentationDropdown">
-            <a href="Instrumentation_case1.html">Case #1</a><a href="Instrumentation_case2.html">Case #2</a>
-            <a href="Instrumentation_case3.html">Case #3</a><a href="Instrumentation_case4.html">Case #4</a>
-            <a href="Instrumentation_case5.html">Case #5</a><a href="Instrumentation_case6.html">Case #6</a>
-            <a href="Instrumentation_case7.html">Case #7</a><a href="Instrumentation_case8.html">Case #8</a>
-            <a href="Instrumentation_case9.html">Case #9</a><a href="Instrumentation_case10.html">Case #10</a>
-          </div>
-        </div>
-
-        <div class="dropdown">
-          <button class="dropbtn" onclick="toggleDropdown('ArtifactsDropdown', event)">Artifacts ▾</button>
-          <div class="dropdown-content" id="ArtifactsDropdown">
-            <a href="Artifacts_case1.html">Case #1</a><a href="Artifacts_case2.html">Case #2</a>
-            <a href="Artifacts_case3.html">Case #3</a><a href="Artifacts_case4.html">Case #4</a>
-            <a href="Artifacts_case5.html">Case #5</a><a href="Artifacts_case6.html">Case #6</a>
-            <a href="Artifacts_case7.html">Case #7</a><a href="Artifacts_case8.html">Case #8</a>
-            <a href="Artifacts_case9.html">Case #9</a><a href="Artifacts_case10.html">Case #10</a>
-          </div>
-        </div>
-
-        <div class="dropdown">
-          <button class="dropbtn" onclick="toggleDropdown('othersDropdown', event)">Others ▾</button>
-          <div class="dropdown-content" id="othersDropdown">
-            <a href="others_case1.html">Case #1</a><a href="others_case2.html">Case #2</a>
-            <a href="others_case3.html">Case #3</a><a href="others_case4.html">Case #4</a>
-            <a href="others_case5.html">Case #5</a><a href="others_case6.html">Case #6</a>
-            <a href="others_case7.html">Case #7</a><a href="others_case8.html">Case #8</a>
-            <a href="others_case9.html">Case #9</a><a href="others_case10.html">Case #10</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="nav-right">
-    <input type="text" placeholder="Search cases..." autocomplete="off" disabled
-      style="opacity:0.6;cursor:not-allowed;" title="Search available on the Index page">
-  </div>
-</nav>
 
 <header class="site-header">
   <img src="The_Ottawa_Hospital_Logo.png" alt="The Ottawa Hospital Logo" class="logo left-logo">
