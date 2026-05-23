@@ -71,17 +71,6 @@
       border-bottom: 3px solid #005EB8;
       padding-bottom: 12px;
     }
-    .site-header h1 {
-      grid-column: 2;
-      justify-self: center;
-      margin: 0;
-      color: #005EB8;
-      font-size: 2.8em;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      text-align: center;
-    }
     .header-center {
       grid-column: 2;
       justify-self: center;
@@ -90,13 +79,22 @@
       align-items: center;
       gap: 10px;
     }
+    .title-part {
+      margin: 0;
+      color: #005EB8;
+      font-size: 3.4em;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      white-space: nowrap;
+    }
     .third-logo {
-      height: 60px;
+      height: 90px;
       width: auto;
       object-fit: contain;
     }
     .logo {
-      height: 140px;
+      height: 100px;
       width: auto;
       object-fit: contain;
     }
@@ -242,7 +240,7 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.15);
       border-radius: 6px;
       overflow: visible;
-      z-index: 1001;
+      z-index: 9999;
       flex-direction: column;
     }
     .top-nav .dropdown-content a {
@@ -255,7 +253,7 @@
     .dropdown-content a:hover {
       background-color: #f0f4f8;
     }
-    .show { display: block; }
+    .show { display: block !important; }
  
     .dropdown-content > .dropdown {
       display: block;
@@ -349,7 +347,13 @@
  
 <nav class="top-nav">
   <div class="nav-left">
-    <a href="index.html" class="nav-logo">NMMI Teaching Files</a>
+    <div class="dropdown">
+      <button class="dropbtn nav-logo" onclick="toggleDropdown('homeDropdown', event)">NMMI Teaching Files ▾</button>
+      <div class="dropdown-content" id="homeDropdown">
+        <a href="home.html">Home Page</a>
+        <a href="index.html">Index Page</a>
+      </div>
+    </div>
  
     <div class="dropdown">
       <button class="dropbtn" onclick="toggleDropdown('indexesDropdown', event)">Indexes ▾</button>
@@ -651,13 +655,14 @@
 </nav>
  
 <header class="site-header">
-  <img src="UOttawa_Med_Logo.png" alt="uOttawa Medicine Logo" class="logo left-logo">
-  <div class="header-center">
-    <h1>Nuclear Medicine Teaching Files</h1>
-    <img src="Nuc_Med_Logo.png" alt="Third Logo" class="third-logo"
+  <img src="The_Ottawa_Hospital_Logo.png" alt="The Ottawa Hospital Logo" class="logo left-logo">
+  <<div class="header-center">
+    <h1 class="title-part">Nuclear Medicine</h1>
+    <img src="Nuc_Med_Logo.png" alt="Nuclear Medicine Logo" class="third-logo"
       onerror="this.style.display='none'">
+    <h1 class="title-part">Teaching Archives</h1>
   </div>
-  <img src="The_Ottawa_Hospital_Logo.png" alt="The Ottawa Hospital Logo" class="logo right-logo">
+  <img src="UOttawa_Med_Logo.png" alt="uOttawa Medicine Logo" class="logo right-logo">
 </header>
  
 <p class="subtitle">
@@ -685,27 +690,32 @@
     </p>
   </div>
 </div>
- 
-<div class="case" id="section-indexes">
-  <div class="case-header" onclick="toggleSection('indexes')">
-    <h2>Website Case Indexes</h2>
+
+<div class="case" id="section-ottawa">
+  <div class="case-header" onclick="toggleSection('ottawa')">
+    <h2>The Ottawa Hospital</h2>
     <span class="case-toggle-icon">▼</span>
   </div>
-  <div class="case-body" id="body-indexes">
-    <p>Please use the following links above to browse all of our cases by either of the following views:</p>
-    <ul class="case-links-list">
-      <li><a href="cases_by_system.html">Cases by Organ System</a></li>
-      <li><a href="cases_by_diagnosis.html">Cases by Diagnosis</a></li>
-    </ul>
+  <div class="case-body" id="body-ottawa">
+    <img src="OttawaHospitalCampus.jpg" alt="The Ottawa Hospital Proposed New Campus"
+      style="width:100%; max-height:600px; object-fit:cover; border-radius:6px; margin-bottom:18px; display:block;">
+    <p>
+      The Ottawa Hospital is reshaping the future of healthcare with a state of the art healthcare and academic research health centre in the heart of Ottawa.
+      Above is the proposed new campus, containing multiple facilities which can be further enquired about
+      <a href="https://newcampusdevelopment.ca/" target="_blank" rel="noopener noreferrer"
+       style="color:#005EB8; font-weight:600; text-decoration:none;">here</a>.
+    </p>
   </div>
 </div>
- 
+  
 <div class="case" id="section-whoweare">
   <div class="case-header" onclick="toggleSection('whoweare')">
     <h2>Who We Are</h2>
     <span class="case-toggle-icon">▼</span>
   </div>
   <div class="case-body" id="body-whoweare">
+    <img src="NMMIDivision.jpg" alt="NMMI uOttawa picture"
+      style="width:100%; max-height:420px; object-fit:cover; border-radius:6px; margin-bottom:18px; display:block;">
     <p>
       The Division of Nuclear Medicine and Molecular Imaging at University of Ottawa is part of the Department of Medicine and operates across the General, Civic, and Riverside campuses of The Ottawa Hospital.
     </p>
