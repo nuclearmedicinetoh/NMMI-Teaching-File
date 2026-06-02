@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Hepato-Biliary Case #1 – TOH NMMI Teaching Files</title>
   <style>
-    /* ── Nav styles (from cases_by_diagnosis.html) ── */
     .top-nav {
       position: sticky;
       top: 0;
@@ -38,16 +37,12 @@
       border: none;
       font-size: 0.95em;
     }
-
-    /* ── Body / page ── */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 40px;
       background: #f5f5f5;
     }
-
-    /* ── Header (from cases_by_diagnosis.html) ── */
     .site-header {
       display: grid;
       grid-template-columns: auto 1fr auto;
@@ -73,54 +68,39 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       white-space: nowrap;
     }
-    .third-logo {
-      height: 90px;
-      width: auto;
-      object-fit: contain;
-    }
-    .logo {
-      height: 100px;
-      width: auto;
-      object-fit: contain;
-    }
+    .third-logo { height: 90px; width: auto; object-fit: contain; }
+    .logo { height: 100px; width: auto; object-fit: contain; }
     .left-logo { justify-self: start; }
     .right-logo { justify-self: end; }
-
-    /* ── Subtitle ── */
     .subtitle {
       text-align: center;
       color: #555;
       margin-bottom: 40px;
       font-size: 1.05em;
     }
-
-    /* ── Case content ── */
-    .case {
+ h1 { color: #003f80; }
+    h2 { color: #003f80; margin-top: 28px; }
+    .section {
       background: white;
-      padding: 30px 36px;
-      margin-bottom: 30px;
+      padding: 20px 28px;
+      margin-bottom: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.08);
     }
-    .case h2 { margin-top: 0; margin-bottom: 16px; color: #003f80; }
-    .case p { margin: 0; line-height: 1.75; color: #333; }
-    .case p + p { margin-top: 16px; }
-    .case ul, .case ol { margin: 8px 0 4px 0; padding-left: 26px; }
-    .case li { margin-bottom: 10px; line-height: 1.65; color: #333; }
-    .case li:last-child { margin-bottom: 0; }
-
+    p { margin: 0; line-height: 1.75; color: #333; }
+    p + p { margin-top: 16px; }
+    ul, ol { margin: 8px 0 4px 0; padding-left: 26px; }
+    li { margin-bottom: 10px; line-height: 1.65; color: #333; }
+    li:last-child { margin-bottom: 0; }
     figure { margin: 20px 0; }
     figure img { max-width: 100%; border-radius: 6px; }
     figcaption { font-size: 0.9em; color: #555; margin-top: 6px; }
-
     details summary {
       cursor: pointer;
       font-weight: 600;
       color: #005EB8;
       margin-bottom: 12px;
     }
-
-    /* ── Footer ── */
     footer {
       text-align: center;
       margin-top: 60px;
@@ -128,8 +108,6 @@
       font-size: 0.9em;
       line-height: 1.8;
     }
-
-    /* ── Dropdowns ── */
     .dropdown { position: relative; display: inline-block; }
     .dropbtn {
       background: none;
@@ -181,8 +159,6 @@
     }
     .dropdown-content button.dropbtn:hover { background-color: #f0f4f8; }
     #indexesDropdown { min-width: 200px; }
-
-    /* ── Search results panel ── */
     #searchResults {
       display: none;
       position: fixed;
@@ -213,9 +189,6 @@
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════
-     NAV — exact copy from cases_by_diagnosis.html
-     ══════════════════════════════════════════════ -->
 <nav class="top-nav">
   <div class="nav-left">
 
@@ -318,9 +291,6 @@
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════════
-     HEADER — exact copy from cases_by_diagnosis.html
-     ══════════════════════════════════════════════ -->
 <header class="site-header">
   <img src="The_Ottawa_Hospital_Logo.png" alt="The Ottawa Hospital Logo" class="logo left-logo">
   <div class="header-center">
@@ -334,42 +304,46 @@
 
 <p class="subtitle">All content is anonymized and intended for educational purposes only.</p>
 
-<!-- ══════════════════════════════════════════════
-     CASE CONTENT — unchanged from original
-     ══════════════════════════════════════════════ -->
 <div class="case">
   <h2>Hepato-Biliary Studies – Case #1</h2>
 
   <p><b>Contributed by:</b> Dr. Alireza Khatami, MD</p>
 
   <h2>Patient Information</h2>
-  <ul>
-    <li>69-year-old male admitted to the hospital for critical limb ischemia of the left leg. He was found to have incidental liver lesions.</li>
-    <li>CT scans demonstrated lytic lesions of the skull, bone scan showed uptake in the left 10th rib suspicious for metastases CT findings of the liver lesions was indeterminate though MRI of liver was in favor hemangiomas, referred for further assessment of liver lesions.</li>
-  </ul>
+  <div class="section">  
+    <ul>
+      <li>69-year-old male admitted to the hospital for critical limb ischemia of the left leg. He was found to have incidental liver lesions.</li>
+      <li>CT scans demonstrated lytic lesions of the skull, bone scan showed uptake in the left 10th rib suspicious for metastases CT findings of the liver lesions was indeterminate though MRI of liver was in favor hemangiomas, referred for further assessment of liver lesions.</li>
+    </ul>
+  </div>
 
   <h2>Images</h2>
-  <figure>
-    <img src="https://res.cloudinary.com/do6nucmhv/image/upload/v1779117935/Screenshot_2026-02-16_at_8.57.10_PM_c5zezn_yp0rqi.png">
-    <figcaption><strong>Figure 1.</strong></figcaption>
-  </figure>
-  <figure>
-    <img src="https://res.cloudinary.com/do6nucmhv/image/upload/v1779117936/Screenshot_2026-02-16_at_8.57.25_PM_ndibjj_wod06l.png">
-    <figcaption><strong>Figure 2.</strong></figcaption>
-  </figure>
-  <figure>
-    <img src="https://res.cloudinary.com/do6nucmhv/image/upload/v1779117936/Screenshot_2026-02-16_at_8.57.37_PM_pcmngp_fkjdkr.png">
-    <figcaption><strong>Figure 3.</strong></figcaption>
-  </figure>
-
+  <div class="section">
+    <figure>
+      <img src="https://res.cloudinary.com/do6nucmhv/image/upload/v1779117935/Screenshot_2026-02-16_at_8.57.10_PM_c5zezn_yp0rqi.png">
+      <figcaption><strong>Figure 1.</strong></figcaption>
+    </figure>
+    <figure>
+      <img src="https://res.cloudinary.com/do6nucmhv/image/upload/v1779117936/Screenshot_2026-02-16_at_8.57.25_PM_ndibjj_wod06l.png">
+      <figcaption><strong>Figure 2.</strong></figcaption>
+    </figure>
+    <figure>
+      <img src="https://res.cloudinary.com/do6nucmhv/image/upload/v1779117936/Screenshot_2026-02-16_at_8.57.37_PM_pcmngp_fkjdkr.png">
+      <figcaption><strong>Figure 3.</strong></figcaption>
+    </figure>
+  </div>
+    
   <h2>Impression</h2>
-  <ul>
-    <li>What are the Key Findings?</li>
-    <li>What is your Diagnosis?</li>
-    <li>How would you report your findings?</li>
-  </ul>
+  <div class="section">
+    <ul>
+      <li>What are the Key Findings?</li>
+      <li>What is your Diagnosis?</li>
+      <li>How would you report your findings?</li>
+    </ul>
+  </div>
 
   <h2>Findings</h2>
+  <div class="section">
   <details>
     <summary>🔍 Click to reveal findings</summary>
 
@@ -447,7 +421,6 @@
     const panel = document.getElementById('searchResults');
     if (query.length < 2) { panel.style.display = 'none'; panel.innerHTML = ''; return; }
 
-    const caseBox = document.querySelector('.case');
     const bodyText = caseBox ? (caseBox.innerText || caseBox.textContent || '') : '';
 
     if (bodyText.toLowerCase().includes(query.toLowerCase())) {
@@ -463,8 +436,7 @@
   }
 
   function jumpToTop() {
-    const box = document.querySelector('.case');
-    if (box) setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     document.getElementById('searchResults').style.display = 'none';
     document.getElementById('searchInput').value = '';
   }
