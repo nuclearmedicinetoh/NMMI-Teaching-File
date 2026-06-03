@@ -21,23 +21,15 @@
       margin-right: 20px;
       font-weight: 600;
     }
-    .top-nav a:hover {
-      text-decoration: underline;
-    }
-    .nav-logo {
-      font-size: 1.2em;
-      font-weight: 700;
-    }
+    .top-nav a:hover { text-decoration: underline; }
+    .nav-logo { font-size: 1.2em; font-weight: 700; }
     .nav-left {
       display: flex;
       align-items: center;
       gap: 18px;
       white-space: nowrap;
     }
-    .nav-right {
-      display: flex;
-      align-items: center;
-    }
+    .nav-right { display: flex; align-items: center; }
     .nav-right input {
       width: 180px;
       padding: 6px 10px;
@@ -88,19 +80,10 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       white-space: nowrap;
     }
-    .third-logo {
-      height: 90px;
-      width: auto;
-      object-fit: contain;
-    }
-    .logo {
-      height: 100px;
-      width: auto;
-      object-fit: contain;
-    }
+    .third-logo { height: 90px; width: auto; object-fit: contain; }
+    .logo { height: 100px; width: auto; object-fit: contain; }
     .left-logo { justify-self: start; }
     .right-logo { justify-self: end; }
-
     .subtitle {
       text-align: center;
       color: #fff;
@@ -108,6 +91,7 @@
       font-size: 1.05em;
     }
 
+    /* ── Main content card ── */
     .case {
       background: white;
       padding: 30px 36px;
@@ -118,6 +102,7 @@
     .case h2 { margin-top: 0; margin-bottom: 16px; color: #003f80; }
     .case > p { margin: 0; line-height: 1.75; color: #333; }
 
+    /* ── System headings — identical style to Cases by Diagnosis ── */
     .system-heading {
       font-size: 1.12em;
       font-weight: 700;
@@ -128,41 +113,35 @@
     }
     .system-heading:first-of-type { margin-top: 20px; }
 
-    .nothing-yet {
-      color: #999;
-      font-style: italic;
-      margin: 6px 0 0 18px;
-      font-size: 0.96em;
-    }
-
-    .diagnosis-list {
+    /* ── Case link list ── */
+    .case-list {
       list-style: disc;
       padding-left: 24px;
       margin: 8px 0 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 0;
+      column-gap: 0;
     }
-    .diagnosis-list > li {
-      margin-bottom: 10px;
-      font-weight: 600;
-      color: #222;
-      line-height: 1.5;
-    }
-
-    .case-sublist {
-      list-style: circle;
-      padding-left: 22px;
-      margin: 4px 0 0 0;
-    }
-    .case-sublist li {
-      font-weight: 400;
-      margin-bottom: 4px;
+    .case-list li {
+      width: 10%;
+      min-width: 80px;
+      margin-bottom: 6px;
       line-height: 1.6;
       color: #333;
+      list-style: none;
+      padding-left: 4px;
     }
-    .case-sublist a { color: #005EB8; text-decoration: none; }
-    .case-sublist a:hover { text-decoration: underline; }
+    .case-list a {
+      color: #005EB8;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .case-list a:hover { text-decoration: underline; }
 
     footer { text-align: center; margin-top: 60px; color: #fff; font-size: 0.9em; line-height: 1.8; }
 
+    /* ── Dropdowns ── */
     .dropdown { position: relative; display: inline-block; }
     .dropbtn {
       background: none;
@@ -215,6 +194,7 @@
     .dropdown-content button.dropbtn:hover { background-color: #f0f4f8; }
     #indexesDropdown { min-width: 200px; }
 
+    /* ── Search results panel ── */
     #searchResults {
       display: none;
       position: fixed;
@@ -237,28 +217,10 @@
     }
     #searchResults .result-item:last-child { border-bottom: none; }
     #searchResults .result-item:hover { background: #f0f4f8; }
-    #searchResults .result-title {
-      font-weight: 700;
-      color: #003f80;
-      font-size: 0.95em;
-      margin-bottom: 3px;
-    }
-    #searchResults .result-snippet {
-      font-size: 0.82em;
-      color: #555;
-      line-height: 1.45;
-    }
-    #searchResults .result-snippet mark {
-      background: #fff3cd;
-      border-radius: 2px;
-      padding: 0 2px;
-    }
-    #searchResults .no-results {
-      padding: 18px;
-      color: #888;
-      font-size: 0.95em;
-      text-align: center;
-    }
+    #searchResults .result-title { font-weight: 700; color: #003f80; font-size: 0.95em; margin-bottom: 3px; }
+    #searchResults .result-snippet { font-size: 0.82em; color: #555; line-height: 1.45; }
+    #searchResults .result-snippet mark { background: #fff3cd; border-radius: 2px; padding: 0 2px; }
+    #searchResults .no-results { padding: 18px; color: #888; font-size: 0.95em; text-align: center; }
   </style>
 </head>
 <body>
@@ -379,288 +341,249 @@
 <p class="subtitle">All content is anonymized and intended for educational purposes only.</p>
 
 <div class="case">
-  <h2>Cases by System</h2>
-  <p>Select a system below to navigate directly to a case. Each system contains 10 teaching cases.</p>
- 
-  <br>
- 
-  <div class="systems-grid">
- 
-    <div class="system-block">
-      <h3>Skeletal</h3>
-      <ul>
-        <li><a href="bone_case1.html">Case #1</a></li>
-        <li><a href="bone_case2.html">Case #2</a></li>
-        <li><a href="bone_case3.html">Case #3</a></li>
-        <li><a href="bone_case4.html">Case #4</a></li>
-        <li><a href="bone_case5.html">Case #5</a></li>
-        <li><a href="bone_case6.html">Case #6</a></li>
-        <li><a href="bone_case7.html">Case #7</a></li>
-        <li><a href="bone_case8.html">Case #8</a></li>
-        <li><a href="bone_case9.html">Case #9</a></li>
-        <li><a href="bone_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Pulmonary</h3>
-      <ul>
-        <li><a href="lung_case1.html">Case #1</a></li>
-        <li><a href="lung_case2.html">Case #2</a></li>
-        <li><a href="lung_case3.html">Case #3</a></li>
-        <li><a href="lung_case4.html">Case #4</a></li>
-        <li><a href="lung_case5.html">Case #5</a></li>
-        <li><a href="lung_case6.html">Case #6</a></li>
-        <li><a href="lung_case7.html">Case #7</a></li>
-        <li><a href="lung_case8.html">Case #8</a></li>
-        <li><a href="lung_case9.html">Case #9</a></li>
-        <li><a href="lung_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Endocrine</h3>
-      <ul>
-        <li><a href="endocrine_case1.html">Case #1</a></li>
-        <li><a href="endocrine_case2.html">Case #2</a></li>
-        <li><a href="endocrine_case3.html">Case #3</a></li>
-        <li><a href="endocrine_case4.html">Case #4</a></li>
-        <li><a href="endocrine_case5.html">Case #5</a></li>
-        <li><a href="endocrine_case6.html">Case #6</a></li>
-        <li><a href="endocrine_case7.html">Case #7</a></li>
-        <li><a href="endocrine_case8.html">Case #8</a></li>
-        <li><a href="endocrine_case9.html">Case #9</a></li>
-        <li><a href="endocrine_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Hepato-Biliary</h3>
-      <ul>
-        <li><a href="HepatoBiliary_case1.html">Case #1</a></li>
-        <li><a href="HepatoBiliary_case2.html">Case #2</a></li>
-        <li><a href="HepatoBiliary_case3.html">Case #3</a></li>
-        <li><a href="HepatoBiliary_case4.html">Case #4</a></li>
-        <li><a href="HepatoBiliary_case5.html">Case #5</a></li>
-        <li><a href="HepatoBiliary_case6.html">Case #6</a></li>
-        <li><a href="HepatoBiliary_case7.html">Case #7</a></li>
-        <li><a href="HepatoBiliary_case8.html">Case #8</a></li>
-        <li><a href="HepatoBiliary_case9.html">Case #9</a></li>
-        <li><a href="HepatoBiliary_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Gastrointestinal (GI)</h3>
-      <ul>
-        <li><a href="Gastrointestinal_case1.html">Case #1</a></li>
-        <li><a href="Gastrointestinal_case2.html">Case #2</a></li>
-        <li><a href="Gastrointestinal_case3.html">Case #3</a></li>
-        <li><a href="Gastrointestinal_case4.html">Case #4</a></li>
-        <li><a href="Gastrointestinal_case5.html">Case #5</a></li>
-        <li><a href="Gastrointestinal_case6.html">Case #6</a></li>
-        <li><a href="Gastrointestinal_case7.html">Case #7</a></li>
-        <li><a href="Gastrointestinal_case8.html">Case #8</a></li>
-        <li><a href="Gastrointestinal_case9.html">Case #9</a></li>
-        <li><a href="Gastrointestinal_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Genitourinary (G-U)</h3>
-      <ul>
-        <li><a href="urinary_case1.html">Case #1</a></li>
-        <li><a href="urinary_case2.html">Case #2</a></li>
-        <li><a href="urinary_case3.html">Case #3</a></li>
-        <li><a href="urinary_case4.html">Case #4</a></li>
-        <li><a href="urinary_case5.html">Case #5</a></li>
-        <li><a href="urinary_case6.html">Case #6</a></li>
-        <li><a href="urinary_case7.html">Case #7</a></li>
-        <li><a href="urinary_case8.html">Case #8</a></li>
-        <li><a href="urinary_case9.html">Case #9</a></li>
-        <li><a href="urinary_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>PET-CT</h3>
-      <ul>
-        <li><a href="pet_case1.html">Case #1</a></li>
-        <li><a href="pet_case2.html">Case #2</a></li>
-        <li><a href="pet_case3.html">Case #3</a></li>
-        <li><a href="pet_case4.html">Case #4</a></li>
-        <li><a href="pet_case5.html">Case #5</a></li>
-        <li><a href="pet_case6.html">Case #6</a></li>
-        <li><a href="pet_case7.html">Case #7</a></li>
-        <li><a href="pet_case8.html">Case #8</a></li>
-        <li><a href="pet_case9.html">Case #9</a></li>
-        <li><a href="pet_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Oncology</h3>
-      <ul>
-        <li><a href="Oncology_case1.html">Case #1</a></li>
-        <li><a href="Oncology_case2.html">Case #2</a></li>
-        <li><a href="Oncology_case3.html">Case #3</a></li>
-        <li><a href="Oncology_case4.html">Case #4</a></li>
-        <li><a href="Oncology_case5.html">Case #5</a></li>
-        <li><a href="Oncology_case6.html">Case #6</a></li>
-        <li><a href="Oncology_case7.html">Case #7</a></li>
-        <li><a href="Oncology_case8.html">Case #8</a></li>
-        <li><a href="Oncology_case9.html">Case #9</a></li>
-        <li><a href="Oncology_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Central Nervous System</h3>
-      <ul>
-        <li><a href="brain_case1.html">Case #1</a></li>
-        <li><a href="brain_case2.html">Case #2</a></li>
-        <li><a href="brain_case3.html">Case #3</a></li>
-        <li><a href="brain_case4.html">Case #4</a></li>
-        <li><a href="brain_case5.html">Case #5</a></li>
-        <li><a href="brain_case6.html">Case #6</a></li>
-        <li><a href="brain_case7.html">Case #7</a></li>
-        <li><a href="brain_case8.html">Case #8</a></li>
-        <li><a href="brain_case9.html">Case #9</a></li>
-        <li><a href="brain_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Inflammation</h3>
-      <ul>
-        <li><a href="Inflammatory_case1.html">Case #1</a></li>
-        <li><a href="Inflammatory_case2.html">Case #2</a></li>
-        <li><a href="Inflammatory_case3.html">Case #3</a></li>
-        <li><a href="Inflammatory_case4.html">Case #4</a></li>
-        <li><a href="Inflammatory_case5.html">Case #5</a></li>
-        <li><a href="Inflammatory_case6.html">Case #6</a></li>
-        <li><a href="Inflammatory_case7.html">Case #7</a></li>
-        <li><a href="Inflammatory_case8.html">Case #8</a></li>
-        <li><a href="Inflammatory_case9.html">Case #9</a></li>
-        <li><a href="Inflammatory_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Infection</h3>
-      <ul>
-        <li><a href="Infection_case1.html">Case #1</a></li>
-        <li><a href="Infection_case2.html">Case #2</a></li>
-        <li><a href="Infection_case3.html">Case #3</a></li>
-        <li><a href="Infection_case4.html">Case #4</a></li>
-        <li><a href="Infection_case5.html">Case #5</a></li>
-        <li><a href="Infection_case6.html">Case #6</a></li>
-        <li><a href="Infection_case7.html">Case #7</a></li>
-        <li><a href="Infection_case8.html">Case #8</a></li>
-        <li><a href="Infection_case9.html">Case #9</a></li>
-        <li><a href="Infection_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Cardiovascular</h3>
-      <ul>
-        <li><a href="cardiac_case1.html">Case #1</a></li>
-        <li><a href="cardiac_case2.html">Case #2</a></li>
-        <li><a href="cardiac_case3.html">Case #3</a></li>
-        <li><a href="cardiac_case4.html">Case #4</a></li>
-        <li><a href="cardiac_case5.html">Case #5</a></li>
-        <li><a href="cardiac_case6.html">Case #6</a></li>
-        <li><a href="cardiac_case7.html">Case #7</a></li>
-        <li><a href="cardiac_case8.html">Case #8</a></li>
-        <li><a href="cardiac_case9.html">Case #9</a></li>
-        <li><a href="cardiac_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Radiopharmacy</h3>
-      <ul>
-        <li><a href="Pharmacy_case1.html">Case #1</a></li>
-        <li><a href="Pharmacy_case2.html">Case #2</a></li>
-        <li><a href="Pharmacy_case3.html">Case #3</a></li>
-        <li><a href="Pharmacy_case4.html">Case #4</a></li>
-        <li><a href="Pharmacy_case5.html">Case #5</a></li>
-        <li><a href="Pharmacy_case6.html">Case #6</a></li>
-        <li><a href="Pharmacy_case7.html">Case #7</a></li>
-        <li><a href="Pharmacy_case8.html">Case #8</a></li>
-        <li><a href="Pharmacy_case9.html">Case #9</a></li>
-        <li><a href="Pharmacy_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Physics</h3>
-      <ul>
-        <li><a href="Physics_case1.html">Case #1</a></li>
-        <li><a href="Physics_case2.html">Case #2</a></li>
-        <li><a href="Physics_case3.html">Case #3</a></li>
-        <li><a href="Physics_case4.html">Case #4</a></li>
-        <li><a href="Physics_case5.html">Case #5</a></li>
-        <li><a href="Physics_case6.html">Case #6</a></li>
-        <li><a href="Physics_case7.html">Case #7</a></li>
-        <li><a href="Physics_case8.html">Case #8</a></li>
-        <li><a href="Physics_case9.html">Case #9</a></li>
-        <li><a href="Physics_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Instrumentation</h3>
-      <ul>
-        <li><a href="Instrumentation_case1.html">Case #1</a></li>
-        <li><a href="Instrumentation_case2.html">Case #2</a></li>
-        <li><a href="Instrumentation_case3.html">Case #3</a></li>
-        <li><a href="Instrumentation_case4.html">Case #4</a></li>
-        <li><a href="Instrumentation_case5.html">Case #5</a></li>
-        <li><a href="Instrumentation_case6.html">Case #6</a></li>
-        <li><a href="Instrumentation_case7.html">Case #7</a></li>
-        <li><a href="Instrumentation_case8.html">Case #8</a></li>
-        <li><a href="Instrumentation_case9.html">Case #9</a></li>
-        <li><a href="Instrumentation_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Artifacts</h3>
-      <ul>
-        <li><a href="Artifacts_case1.html">Case #1</a></li>
-        <li><a href="Artifacts_case2.html">Case #2</a></li>
-        <li><a href="Artifacts_case3.html">Case #3</a></li>
-        <li><a href="Artifacts_case4.html">Case #4</a></li>
-        <li><a href="Artifacts_case5.html">Case #5</a></li>
-        <li><a href="Artifacts_case6.html">Case #6</a></li>
-        <li><a href="Artifacts_case7.html">Case #7</a></li>
-        <li><a href="Artifacts_case8.html">Case #8</a></li>
-        <li><a href="Artifacts_case9.html">Case #9</a></li>
-        <li><a href="Artifacts_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-    <div class="system-block">
-      <h3>Others</h3>
-      <ul>
-        <li><a href="others_case1.html">Case #1</a></li>
-        <li><a href="others_case2.html">Case #2</a></li>
-        <li><a href="others_case3.html">Case #3</a></li>
-        <li><a href="others_case4.html">Case #4</a></li>
-        <li><a href="others_case5.html">Case #5</a></li>
-        <li><a href="others_case6.html">Case #6</a></li>
-        <li><a href="others_case7.html">Case #7</a></li>
-        <li><a href="others_case8.html">Case #8</a></li>
-        <li><a href="others_case9.html">Case #9</a></li>
-        <li><a href="others_case10.html">Case #10</a></li>
-      </ul>
-    </div>
- 
-  </div>
+  <h2>Cases by Organ System</h2>
+  <p>All cases are organized by organ system. Click any case link to open that teaching file.</p>
+
+  <div class="system-heading">1. Skeletal System</div>
+  <ul class="case-list">
+    <li><a href="bone_case1.html">Case #1</a></li>
+    <li><a href="bone_case2.html">Case #2</a></li>
+    <li><a href="bone_case3.html">Case #3</a></li>
+    <li><a href="bone_case4.html">Case #4</a></li>
+    <li><a href="bone_case5.html">Case #5</a></li>
+    <li><a href="bone_case6.html">Case #6</a></li>
+    <li><a href="bone_case7.html">Case #7</a></li>
+    <li><a href="bone_case8.html">Case #8</a></li>
+    <li><a href="bone_case9.html">Case #9</a></li>
+    <li><a href="bone_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">2. Pulmonary System</div>
+  <ul class="case-list">
+    <li><a href="lung_case1.html">Case #1</a></li>
+    <li><a href="lung_case2.html">Case #2</a></li>
+    <li><a href="lung_case3.html">Case #3</a></li>
+    <li><a href="lung_case4.html">Case #4</a></li>
+    <li><a href="lung_case5.html">Case #5</a></li>
+    <li><a href="lung_case6.html">Case #6</a></li>
+    <li><a href="lung_case7.html">Case #7</a></li>
+    <li><a href="lung_case8.html">Case #8</a></li>
+    <li><a href="lung_case9.html">Case #9</a></li>
+    <li><a href="lung_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">3. Endocrine System</div>
+  <ul class="case-list">
+    <li><a href="endocrine_case1.html">Case #1</a></li>
+    <li><a href="endocrine_case2.html">Case #2</a></li>
+    <li><a href="endocrine_case3.html">Case #3</a></li>
+    <li><a href="endocrine_case4.html">Case #4</a></li>
+    <li><a href="endocrine_case5.html">Case #5</a></li>
+    <li><a href="endocrine_case6.html">Case #6</a></li>
+    <li><a href="endocrine_case7.html">Case #7</a></li>
+    <li><a href="endocrine_case8.html">Case #8</a></li>
+    <li><a href="endocrine_case9.html">Case #9</a></li>
+    <li><a href="endocrine_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">4. Hepato-Biliary System</div>
+  <ul class="case-list">
+    <li><a href="HepatoBiliary_case1.html">Case #1</a></li>
+    <li><a href="HepatoBiliary_case2.html">Case #2</a></li>
+    <li><a href="HepatoBiliary_case3.html">Case #3</a></li>
+    <li><a href="HepatoBiliary_case4.html">Case #4</a></li>
+    <li><a href="HepatoBiliary_case5.html">Case #5</a></li>
+    <li><a href="HepatoBiliary_case6.html">Case #6</a></li>
+    <li><a href="HepatoBiliary_case7.html">Case #7</a></li>
+    <li><a href="HepatoBiliary_case8.html">Case #8</a></li>
+    <li><a href="HepatoBiliary_case9.html">Case #9</a></li>
+    <li><a href="HepatoBiliary_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">5. Gastrointestinal System</div>
+  <ul class="case-list">
+    <li><a href="Gastrointestinal_case1.html">Case #1</a></li>
+    <li><a href="Gastrointestinal_case2.html">Case #2</a></li>
+    <li><a href="Gastrointestinal_case3.html">Case #3</a></li>
+    <li><a href="Gastrointestinal_case4.html">Case #4</a></li>
+    <li><a href="Gastrointestinal_case5.html">Case #5</a></li>
+    <li><a href="Gastrointestinal_case6.html">Case #6</a></li>
+    <li><a href="Gastrointestinal_case7.html">Case #7</a></li>
+    <li><a href="Gastrointestinal_case8.html">Case #8</a></li>
+    <li><a href="Gastrointestinal_case9.html">Case #9</a></li>
+    <li><a href="Gastrointestinal_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">6. Genitourinary System</div>
+  <ul class="case-list">
+    <li><a href="urinary_case1.html">Case #1</a></li>
+    <li><a href="urinary_case2.html">Case #2</a></li>
+    <li><a href="urinary_case3.html">Case #3</a></li>
+    <li><a href="urinary_case4.html">Case #4</a></li>
+    <li><a href="urinary_case5.html">Case #5</a></li>
+    <li><a href="urinary_case6.html">Case #6</a></li>
+    <li><a href="urinary_case7.html">Case #7</a></li>
+    <li><a href="urinary_case8.html">Case #8</a></li>
+    <li><a href="urinary_case9.html">Case #9</a></li>
+    <li><a href="urinary_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">7. PET-CT Studies</div>
+  <ul class="case-list">
+    <li><a href="pet_case1.html">Case #1</a></li>
+    <li><a href="pet_case2.html">Case #2</a></li>
+    <li><a href="pet_case3.html">Case #3</a></li>
+    <li><a href="pet_case4.html">Case #4</a></li>
+    <li><a href="pet_case5.html">Case #5</a></li>
+    <li><a href="pet_case6.html">Case #6</a></li>
+    <li><a href="pet_case7.html">Case #7</a></li>
+    <li><a href="pet_case8.html">Case #8</a></li>
+    <li><a href="pet_case9.html">Case #9</a></li>
+    <li><a href="pet_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">8. Oncology Studies</div>
+  <ul class="case-list">
+    <li><a href="Oncology_case1.html">Case #1</a></li>
+    <li><a href="Oncology_case2.html">Case #2</a></li>
+    <li><a href="Oncology_case3.html">Case #3</a></li>
+    <li><a href="Oncology_case4.html">Case #4</a></li>
+    <li><a href="Oncology_case5.html">Case #5</a></li>
+    <li><a href="Oncology_case6.html">Case #6</a></li>
+    <li><a href="Oncology_case7.html">Case #7</a></li>
+    <li><a href="Oncology_case8.html">Case #8</a></li>
+    <li><a href="Oncology_case9.html">Case #9</a></li>
+    <li><a href="Oncology_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">9. Central Nervous System</div>
+  <ul class="case-list">
+    <li><a href="brain_case1.html">Case #1</a></li>
+    <li><a href="brain_case2.html">Case #2</a></li>
+    <li><a href="brain_case3.html">Case #3</a></li>
+    <li><a href="brain_case4.html">Case #4</a></li>
+    <li><a href="brain_case5.html">Case #5</a></li>
+    <li><a href="brain_case6.html">Case #6</a></li>
+    <li><a href="brain_case7.html">Case #7</a></li>
+    <li><a href="brain_case8.html">Case #8</a></li>
+    <li><a href="brain_case9.html">Case #9</a></li>
+    <li><a href="brain_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">10. Inflammatory Studies</div>
+  <ul class="case-list">
+    <li><a href="Inflammatory_case1.html">Case #1</a></li>
+    <li><a href="Inflammatory_case2.html">Case #2</a></li>
+    <li><a href="Inflammatory_case3.html">Case #3</a></li>
+    <li><a href="Inflammatory_case4.html">Case #4</a></li>
+    <li><a href="Inflammatory_case5.html">Case #5</a></li>
+    <li><a href="Inflammatory_case6.html">Case #6</a></li>
+    <li><a href="Inflammatory_case7.html">Case #7</a></li>
+    <li><a href="Inflammatory_case8.html">Case #8</a></li>
+    <li><a href="Inflammatory_case9.html">Case #9</a></li>
+    <li><a href="Inflammatory_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">11. Infectious Studies</div>
+  <ul class="case-list">
+    <li><a href="Infection_case1.html">Case #1</a></li>
+    <li><a href="Infection_case2.html">Case #2</a></li>
+    <li><a href="Infection_case3.html">Case #3</a></li>
+    <li><a href="Infection_case4.html">Case #4</a></li>
+    <li><a href="Infection_case5.html">Case #5</a></li>
+    <li><a href="Infection_case6.html">Case #6</a></li>
+    <li><a href="Infection_case7.html">Case #7</a></li>
+    <li><a href="Infection_case8.html">Case #8</a></li>
+    <li><a href="Infection_case9.html">Case #9</a></li>
+    <li><a href="Infection_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">12. Cardiovascular System</div>
+  <ul class="case-list">
+    <li><a href="cardiac_case1.html">Case #1</a></li>
+    <li><a href="cardiac_case2.html">Case #2</a></li>
+    <li><a href="cardiac_case3.html">Case #3</a></li>
+    <li><a href="cardiac_case4.html">Case #4</a></li>
+    <li><a href="cardiac_case5.html">Case #5</a></li>
+    <li><a href="cardiac_case6.html">Case #6</a></li>
+    <li><a href="cardiac_case7.html">Case #7</a></li>
+    <li><a href="cardiac_case8.html">Case #8</a></li>
+    <li><a href="cardiac_case9.html">Case #9</a></li>
+    <li><a href="cardiac_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">13. Radiopharmacy Cases</div>
+  <ul class="case-list">
+    <li><a href="Pharmacy_case1.html">Case #1</a></li>
+    <li><a href="Pharmacy_case2.html">Case #2</a></li>
+    <li><a href="Pharmacy_case3.html">Case #3</a></li>
+    <li><a href="Pharmacy_case4.html">Case #4</a></li>
+    <li><a href="Pharmacy_case5.html">Case #5</a></li>
+    <li><a href="Pharmacy_case6.html">Case #6</a></li>
+    <li><a href="Pharmacy_case7.html">Case #7</a></li>
+    <li><a href="Pharmacy_case8.html">Case #8</a></li>
+    <li><a href="Pharmacy_case9.html">Case #9</a></li>
+    <li><a href="Pharmacy_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">14. Physics Cases</div>
+  <ul class="case-list">
+    <li><a href="Physics_case1.html">Case #1</a></li>
+    <li><a href="Physics_case2.html">Case #2</a></li>
+    <li><a href="Physics_case3.html">Case #3</a></li>
+    <li><a href="Physics_case4.html">Case #4</a></li>
+    <li><a href="Physics_case5.html">Case #5</a></li>
+    <li><a href="Physics_case6.html">Case #6</a></li>
+    <li><a href="Physics_case7.html">Case #7</a></li>
+    <li><a href="Physics_case8.html">Case #8</a></li>
+    <li><a href="Physics_case9.html">Case #9</a></li>
+    <li><a href="Physics_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">15. Instrumentation Cases</div>
+  <ul class="case-list">
+    <li><a href="Instrumentation_case1.html">Case #1</a></li>
+    <li><a href="Instrumentation_case2.html">Case #2</a></li>
+    <li><a href="Instrumentation_case3.html">Case #3</a></li>
+    <li><a href="Instrumentation_case4.html">Case #4</a></li>
+    <li><a href="Instrumentation_case5.html">Case #5</a></li>
+    <li><a href="Instrumentation_case6.html">Case #6</a></li>
+    <li><a href="Instrumentation_case7.html">Case #7</a></li>
+    <li><a href="Instrumentation_case8.html">Case #8</a></li>
+    <li><a href="Instrumentation_case9.html">Case #9</a></li>
+    <li><a href="Instrumentation_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">16. Artifact Cases</div>
+  <ul class="case-list">
+    <li><a href="Artifacts_case1.html">Case #1</a></li>
+    <li><a href="Artifacts_case2.html">Case #2</a></li>
+    <li><a href="Artifacts_case3.html">Case #3</a></li>
+    <li><a href="Artifacts_case4.html">Case #4</a></li>
+    <li><a href="Artifacts_case5.html">Case #5</a></li>
+    <li><a href="Artifacts_case6.html">Case #6</a></li>
+    <li><a href="Artifacts_case7.html">Case #7</a></li>
+    <li><a href="Artifacts_case8.html">Case #8</a></li>
+    <li><a href="Artifacts_case9.html">Case #9</a></li>
+    <li><a href="Artifacts_case10.html">Case #10</a></li>
+  </ul>
+
+  <div class="system-heading">17. Other Cases</div>
+  <ul class="case-list">
+    <li><a href="others_case1.html">Case #1</a></li>
+    <li><a href="others_case2.html">Case #2</a></li>
+    <li><a href="others_case3.html">Case #3</a></li>
+    <li><a href="others_case4.html">Case #4</a></li>
+    <li><a href="others_case5.html">Case #5</a></li>
+    <li><a href="others_case6.html">Case #6</a></li>
+    <li><a href="others_case7.html">Case #7</a></li>
+    <li><a href="others_case8.html">Case #8</a></li>
+    <li><a href="others_case9.html">Case #9</a></li>
+    <li><a href="others_case10.html">Case #10</a></li>
+  </ul>
+
 </div>
- 
+
 <footer>
   Created by: Dr. Sebastian Mavromatis, MD &nbsp;·&nbsp;
   Supervised by: Dr. Alireza Khatami, MD, MSc, FRCPC &nbsp;·&nbsp;
@@ -668,33 +591,79 @@
   <br>
   &copy; TOH Nuclear Medicine Teaching Files &middot; Educational Use Only
 </footer>
- 
+
 <script>
-function searchCases() {
-  const input = document.getElementById("searchInput");
-  const filter = input.value.toLowerCase();
-  const cases = document.getElementsByClassName("case");
-  for (let i = 0; i < cases.length; i++) {
-    const text = cases[i].innerText.toLowerCase();
-    cases[i].style.display = text.includes(filter) ? "" : "none";
+  function highlight(text, query) {
+    if (!query) return text;
+    const re = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    return text.replace(re, '<mark>$1</mark>');
   }
-}
-function toggleDropdown(id, event) {
-  event.stopPropagation();
-  const current = document.getElementById(id);
-  const container = current.closest('.dropdown');
-  const siblingDropdowns = container.parentElement.querySelectorAll(':scope > .dropdown .dropdown-content');
-  siblingDropdowns.forEach(d => { if (d !== current) d.classList.remove("show"); });
-  current.classList.toggle("show");
-}
-window.onclick = function(event) {
-  if (!event.target.closest('.dropdown')) {
-    const dropdowns = document.getElementsByClassName("dropdown-content");
-    for (let i = 0; i < dropdowns.length; i++) {
-      dropdowns[i].classList.remove("show");
+
+  function getSnippet(text, query, maxLen = 120) {
+    const lower = text.toLowerCase();
+    const idx   = lower.indexOf(query.toLowerCase());
+    if (idx === -1) return text.slice(0, maxLen) + (text.length > maxLen ? '…' : '');
+    const start = Math.max(0, idx - 40);
+    const end   = Math.min(text.length, idx + query.length + 80);
+    return (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+  }
+
+  function searchCases() {
+    const query = document.getElementById('searchInput').value.trim();
+    const panel = document.getElementById('searchResults');
+    if (query.length < 2) { panel.style.display = 'none'; panel.innerHTML = ''; return; }
+
+    const caseBox = document.querySelector('.case');
+    const bodyText = caseBox ? (caseBox.innerText || caseBox.textContent || '') : '';
+
+    if (bodyText.toLowerCase().includes(query.toLowerCase())) {
+      panel.innerHTML = `<div class="result-item" tabindex="0"
+            onclick="jumpToTop()" onkeydown="if(event.key==='Enter') jumpToTop()">
+         <div class="result-title">${highlight('Cases by Organ System', query)}</div>
+         <div class="result-snippet">${highlight(getSnippet(bodyText, query), query)}</div>
+       </div>`;
+    } else {
+      panel.innerHTML = '<div class="no-results">No matching content found.</div>';
+    }
+    panel.style.display = 'block';
+  }
+
+  function jumpToTop() {
+    const box = document.querySelector('.case');
+    if (box) setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    document.getElementById('searchResults').style.display = 'none';
+    document.getElementById('searchInput').value = '';
+  }
+
+  function handleSearchKey(e) {
+    if (e.key === 'Escape') document.getElementById('searchResults').style.display = 'none';
+    if (e.key === 'Enter') {
+      const first = document.querySelector('#searchResults .result-item');
+      if (first) first.click();
     }
   }
-}
+
+  document.addEventListener('click', function(e) {
+    const input = document.getElementById('searchInput');
+    const panel = document.getElementById('searchResults');
+    if (!input.contains(e.target) && !panel.contains(e.target)) panel.style.display = 'none';
+  });
+
+  function toggleDropdown(id, event) {
+    event.stopPropagation();
+    const current   = document.getElementById(id);
+    const container = current.closest('.dropdown');
+    const siblingDropdowns = container.parentElement.querySelectorAll(':scope > .dropdown .dropdown-content');
+    siblingDropdowns.forEach(d => { if (d !== current) d.classList.remove("show"); });
+    current.classList.toggle("show");
+  }
+
+  window.onclick = function(event) {
+    if (!event.target.closest('.dropdown')) {
+      const dropdowns = document.getElementsByClassName("dropdown-content");
+      for (let i = 0; i < dropdowns.length; i++) dropdowns[i].classList.remove("show");
+    }
+  }
 </script>
 </body>
 </html>
